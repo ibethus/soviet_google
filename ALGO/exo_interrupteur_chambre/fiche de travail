@@ -1,0 +1,25 @@
+Réalisation du programme sur les interrupteurs:
+
+#Formalités (1 min)
+
+setup, draw, mousePressed (stubs, c'est-à-dire des fonctions vide, pour l'instant)
+
+#Décomposition
+
+-déclarer
+dessinerLampes, dessinerInterrupteur, dessinerDecor (stubs aussi)
+- les appeler dans draw
+
+#Remplir setup et le décor (5min)
+
+Version provivisoire, avec les constantes inscrites en dur à l'intérieur des programmes, à modifier plus tard pour faciliter l'édition plus tard. Il s'agit de "refactorer". 
+
+#Choix d'une stratégie (1 min)
+
+-Commencer avec un interrupteur et une lampe 
+-Définir des fonction pour les actions à effectuer (allumer et eteindre la lampe)
+
+#Interrupteur de l'entrée
+
+-Si on clique dessus, son état change ainsi que celui du plafonnier
+
