@@ -15,14 +15,15 @@ final color VERT = color(0, 255, 0);
 final color BLEU = color(0, 0, 255);
 
 //Variables gloables
-color couleur1 = color(255);
-color couleur2 = color(255);
-color couleur3 = color(255);
+color couleur1 = color(200);
+color couleur2 = color(200);
+color couleur3 = color(200);
 color couleur;
 boolean deplacement;
 
 void setup() {
   size(1000, 600);
+  noStroke();
   bouton1 = new Bouton(800, 50, ROUGE, "Rouge");
   bouton2 = new Bouton(800, 150, VERT, "Vert");
   bouton3 = new Bouton(800, 250, BLEU, "Déplacer");

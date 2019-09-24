@@ -87,4 +87,3 @@ class Particle {
     body.setAngularVelocity(random(-10, 10));
   }
 }
-
