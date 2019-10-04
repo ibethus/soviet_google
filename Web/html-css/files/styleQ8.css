@@ -1,0 +1,14 @@
+
+
+a[href$="pdf"]{
+	padding-right: 25px;
+	border: solid 10px blue;
+	background: url(logo-pdf.jpg) right center no-repeat;
+}
+
+
+a[href$="pdf"]:after{
+	content: " (" attr(title) ")";
+	font-style : italic;
+}
+

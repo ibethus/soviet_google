@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+   
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script>
+      $(document).ready(function() {
+
+
+         $("p").on("mouseover mouseout", function() {
+            $(this).toggleClass("intro");
+         });
+         // $("div").on("click", "p", function() {
+         //    $(this).slideToggle();
+         //    $("<p>This is a new paragraph.</p>").insertAfter($(this));
+         // });
+         $("div").on("click", "p",toggleSlide);
+         
+         function toggleSlide(){
+         	$(this).slideToggle();
+         	$("<p>This is a new paragraph.</p>").insertAfter($(this));
+         }
+         $("#stop").on("click", function(){
+            $("div").off("click",toggleSlide);
+         });
+         /*Il faut maintenant éviter de faire :
+         $("button").click(function() {
+            $("<p>This is a new paragraph.</p>").insertAfter("button");
+         });*/
+         $("#old").click(function() {
+            $("input").trigger("focus");
+         });
+         $("#new").click(function() {
+            $("input").triggerHandler("focus");
+         });
+         $("input").focus(function() {
+            $("<span>Focused!</span>").insertAfter($(this));
+         });
+      });
+   </script>
+   <style>
+      .intro {
+         background-color: #00f0ff;
+      }
+   </style>
+</head>
+
+<body>
+   <h1>Découverte de jQuery</h1>
+   <div style="background-color:yellow">
+      <p>This is a paragraph.</p>
+      <p>Click any p element to make it disappear. Including this one.</p>
+      <button>Insert a new p element after this button</button>
+   </div>
+      <button id="stop">test Off()</button>
+
+   <button id="old">.trigger("focus")</button>
+   <button id="new">.triggerHandler("focus")
+   </button>
+   <br/>
+   <br/>
+   <input type="text" value="To Be Focused 1" />
+   <br>
+   <input type="text" value="To Be Focused 2" />
+</body>
+
+</html>

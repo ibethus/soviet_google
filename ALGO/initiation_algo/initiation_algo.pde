@@ -11,6 +11,14 @@ Conteneur: Objet qui contient des objets : éléments.
  -calculer le nombre d'éléments
  
  Il y a différentes sortes de listes, nous allons utiliser ArrayList. C'est une liste, dans laquelle on peut aller chercher un élément grace à sa position dans la liste.
+ On écrit: 
+ -Arraylist <...>... = new Arraylist<...>;
+ -float[] ... = new float[...] (c'est alors un tableau, pas un Arraylist);
+ liste de commandes:
+ list.add(...) //Ajouter une valeur
+ list.clean(...) //Vider la liste
+ list.isEmpty(...) //Retourne vrai si la liste est vide
+ list.size(...)//Donne la taille de la liste (length)
  */
  
 //Declaration de la liste
@@ -28,7 +36,7 @@ void setup() {
 
 void draw() {
   background(255);
-  for (pastille p : listePastille) {
+  for (pastille p : listePastille) { //"Range-based for loop", ou boucle "for each"
     p.dessiner();
   }
 }

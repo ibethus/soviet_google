@@ -1,0 +1,23 @@
+
+/*question 1*/
+.menu li{
+	list-style : none;
+}
+
+.menu a{
+	display: inline-block;
+	padding: 8px 12px;
+	border :scr 2px solid #fff;
+	text-shadow : 0px 0px 6px #777;
+	background: #98B924;
+	color: #fff;
+	text-decoration: none;
+	-webkit-transition : all 2s;
+
+}
+
+.menu a:hover, .menu a:focus{
+	padding-right: 150px;
+	background: #b8da40;
+}
+

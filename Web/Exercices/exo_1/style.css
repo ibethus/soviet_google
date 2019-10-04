@@ -1,0 +1,52 @@
+/* h1 s'appelle un sélecteur */
+h1{
+  font-size: 50px;
+}
+/* Sélectionne h1 "et" h2. */
+h1, h2{
+  color:blue;
+}
+p{
+  color: black;
+}
+span{
+  color: green;
+}
+/* Sélectionne une balise avec l'id "article". */
+#article{
+  font-size: 20px;
+}
+/* sélectionne toutes les balises de la classe "article". */
+.monArticle{
+  background: pink;
+}
+.texteJaune{
+  background: yellow;
+}
+body{
+  background: content-box radial-gradient(green, skyblue);
+}
+/* Selectionne une image de la classe "grande". */
+img.grande{
+  width: 300px;
+  height: auto;
+}
+/* Sélectionne tous les p qui sont fils, petit-fils, etc. d'une balise de classe monArticle. C'est un sélecteur de descendance indirecte.  */
+.monArticle p {
+}
+/* Selectionne toutes les balises p qui sont fils d'une balise de classe toto. C'est le selecteur de classe direct. */
+.monArticle>p{
+}
+/* Sélectionne tous les p qui ont un grand frère direct p. Le premier p de la la série ne possède pas de grand-frère donc il n'est pas sélectionné. C'est le sélecteur d'adjacence direct. */
+p+p{
+}
+/* La même chose, mais indirect. */
+p~p{
+
+}
+/* Permet de changer la réaction du lien lorsque la souris est dessus. */
+a:hover{
+ color: black;
+}
+/* Permet de sélectionner un élément selon son attribut. */
+img[width="200px;"]

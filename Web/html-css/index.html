@@ -1,0 +1,2352 @@
+<!DOCTYPE html>
+<html>
+<title>Cours HTML/CSS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="http://www.informatics-tech.com/highlighter/prettify.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js' type='text/javascript'></script>
+<script src="http://www.informatics-tech.com/highlighter/prettify.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+
+
+<style>
+table tr th,td{
+  border:1px solid black;
+} 
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.w3-half img:hover{opacity:1}
+.ajout-oga {background-color: green;}
+.todo-oga {background-color: red;}
+pre.enLigne{display: inline;}
+.nicho-modif{border-left: Lime 5px solid;padding-left: 5px;background: yellow;}
+video {border: 2px solid black;}
+.code{background: black; color:white;padding:2px;font: 500 90%/1 Roboto Mono,monospace};
+
+</style>
+<body>
+
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+    <div class="w3-container">
+      <h3 class="w3-padding-64"><b>IUT<br>Département-info</b></h3>
+    </div>
+    <div class="w3-bar-block">
+
+      <a href="#objectifs" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Objectifs</a> 
+      <a href="#exo1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Les bases du HTML</a> 
+      <a href="#exo2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Les bases du CSS</a> 
+      <a href="#exo3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Exercices niveau 1</a> 
+      <a href="#exo4" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Le positionnement : règles de base</a>
+      <a href="#exo4bis" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Exercices niveau 2</a>
+      <a href="#exo5" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Le positionnement : flex-box</a>
+      <a href="#exo6" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Le positionnement : bootstrap</a>
+      <a href="#exo7" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Exercices niveau 3</a>
+      <a href="#exo8" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">HTML/CSS avancé</a> 
+      <a href="#exo9" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">La notion de qualité</a> 
+      <a href="#exo10" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Prise en main d'un CMS</a> 
+      <a href="#exo11" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Outils</a> 
+      <a href="#exo12" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Projet</a> 
+      
+
+
+
+    </div>
+  </nav>
+
+  <!-- Top menu on small screens -->
+  <header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">&#9776;</a>
+    <span>Iut info BDX</span>
+  </header>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="showcase">
+      <h1 id="objectifs" class="w3-jumbo"><b>Objectifs</b></h1>
+      <!-- <h1 class="w3-xxxlarge w3-text-red"><b>Mise en oeuvre avec le jeu du morpion</b></h1> -->
+      <hr style="width:50px;border:5px solid red" class="w3-round">
+    </div>
+
+    <!-- Photo grid (modal) -->
+    <div class="w3-row-padding">
+      <div class="w3-half">
+       <p>    
+        Lors des prochaines semaines vous allez vous initier au 
+        Concrètement après ces séances : 
+        <ul>
+          <li>Vous saurez créer un site web statique de zéro (avec tout de même l'aide d'un web designer)</li>
+          <li>Vous aurez le niveau pour reprendre un template (libre de droits) et le changer</li>
+          <li>De bonnes notions sur ce qu'est un site de qualité</li>
+          <li>Compris les mécaniques de base d'un CMS</li>
+          <li>Vous serez prêts pour les cours de client riche : JS, Ajax, DOM, service workers, Vue.js</li>
+        </ul>
+      </p>
+
+      <p>Voici quelques liens intéressants pour compléter ce cours (évitez openclassroom): 
+        <ul>
+
+          <li>Tout un ensemble de <a href="https://learn-the-web.algonquindesign.ca/topics/">cheat sheet</a> intéressants </li>
+          <li><a href="https://www.w3schools.com/">W3school</a> pour de la documentation et des exemples très claires</li>
+          <li> De bons tutoriels sur le site <a href="tutos https://www.alsacreations.com/tutoriels/">d'alsacréation</a> pour aller plus loin</li>
+          <li>Des cours et des exercices supplémentaires sur le site de <a href="https://fr.khanacademy.org/computing/computer-programming/html-css"></a> la Khan academy</li>
+        </ul>
+
+
+
+
+
+
+
+      </p>
+
+      
+    </div>
+
+    <div   class="w3-half">
+      <img src="img/strip.jpg">
+    </div>
+    
+  </div>
+
+
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  <!-- Services -->
+
+
+
+
+
+  <h2 id="exo1" class="w3-xxlarge">Les bases du HTML</h2>
+  <hr style="width:50px;border:5px solid red" class="w3-round">
+  <p>Cette partie se fait en interaction avec l'enseignant. Pensez à prendre des notes. <br>
+
+    Ce que vous devez avoir retenu de ces interactions : 
+    <ul>
+      <li>L'anatomie d'une page web : doctype/html/head/body</li>
+      <li>A quoi servent les méta données : title, charset, lang (balise html), description,  </li>
+      <li>Ce à quoi correspondent les balises : p,li, h1, img, span, a, div </li>
+      <li>La notion de classe et d'ID</li>
+      <li>Les outils indispensables utiles au développement : connaitre son navigateur (accéder et utiliser aux fonctionnalités de base de votre debugger), prendre en main son IDE, savoir sur quel site aller chercher de la documentation, W3C validator, . </li>
+      <li>Avoir acquis du vocabulaire : balise, propriété, valeur, ... </li>
+      <li>Avoir compris la différence entre un client et un serveur (web) et comment fait une page web pour s'afficher</li>
+      <li>Savoir s'y retrouver rapidement à une <a href="https://www.hostingreviewbox.com/html5-cheat-sheet/">cheat sheet html</a></li>
+    </ul>
+
+  </p>
+
+
+  <h2 id="exo2" class="w3-xxlarge">Les bases du CSS</h2>
+  <hr style="width:50px;border:5px solid red" class="w3-round">
+  
+  <p>Cette  partie se fait en interaction avec l'enseignant. Pensez à prendre des notes. <br>  
+    Ce que vous devez avoir retenu de ces interactions : 
+    <ul>
+      <li>Comment intégrer un fichier css dans son projet</li>
+      <li>La logique des sélecteurs :  <span class="code">,</span> <span class="code">.</span> <span class="code">#</span> <span class="code">espace</span> <span class="code">></span> <span class="code">+</span> <span class="code">~</span> <span class="code">:</span> </li>
+
+      <li>Debug du css</li>
+      <li>Savoir s'y retrouver rapidement dans une <a href="https://makeawebsitehub.com/css3-mega-cheat-sheet/">cheat sheet css</a></li>
+      <li>La notion de priorités des règles css </li>
+    </ul>
+
+    <p>Pour rappel, les spécifications CSS proposent une classification des sélecteurs selon un barème de poids sous forme de notation à quatre chiffres :
+      <ol>
+        <li>Poids a : règle CSS déclarée à l’aide de l’attribut HTML style= au sein de l'élément</li>
+        <li>Poids b : sélecteur d’identifiant</li>
+        <li>Poids c : sélecteur de classe, d’attribut (<span class="code">[]</span>) ou de pseudo-classes ( <span class="code">:hover</span>, <span class="code">:focus</span>, <span class="code">:firstchild</span>)</li>
+        <li>Poids d : sélecteurs d'élément (<span class="code">p</span>, <span class="code">div</span>, <span class="code">a</span>, ...) ou de pseudo-élément ( <span class="code">:first-letter</span>, <span class="code">:before</span>, <span class="code">:after</span>, ...)</li>
+        <li>poids nul : parenté (<span class="code"> > </span>) ou adjacence (<span class="code">+</span>)</li>
+      </ol>
+      <p>Par exemple (trouvés <a href="http://www.coursweb.ch/css/cascade.html">ici</a> ) : </p>
+
+      <pre class="prettyprint">
+        <xmp>
+          #content  nav li a.on:hover {
+          color: red;
+        }
+      </xmp>
+    </pre>
+
+    <p>1 ID (#content), 2 classe+pseudo-classe (.on :hover), 3 éléments (nav li a) => 123</p>
+
+    <p>Il surpassera ce sélecteur:</p>
+
+
+    <pre class="prettyprint">
+      <xmp> 
+        nav.verte li.gras a.on:hover {
+        color: green;
+      }
+    </xmp>
+  </pre>
+
+
+
+  <p>0 ID, 4 classe+pseudo-classe (.on :hover .verte .gras), 3 éléments (nav li a) => 43</p>
+
+  <p>mais pas celui-ci:</p>
+  <pre class="prettyprint">
+    <xmp> 
+      #content #nav a {
+      color: red;
+    }
+  </xmp>
+</pre>
+
+<p>2 ID, 0 classe+pseudo-classe, 1 éléments (a) => 201</p>
+
+
+
+
+
+
+
+
+<h2 id="exo3" class="w3-xxlarge">Exercices niveau 1</h2>
+<hr style="width:50px;border:5px solid red" class="w3-round">
+<h2>Question 1</h2>
+<p>
+  Ecrivez (sans toucher au html) le css permettant de reproduire le rendu suivant : 
+  <ul>
+    <li>Le tire principal est en vert</li>
+    <li>les images ont toutes la même taille (100px)</li>
+    <li>Les images de légumes ont un cadre vert et celles de légumes ont un cadre jaune</li>
+    <li>Le paragraphe se transforme (comme pour le kiwi) au survol de la souris </li>
+    <li>Pensez à optimiser vos sélecteurs !</li>
+  </ul>
+
+  <img style="border: 1px solid black" src="img/exo1bis.png">
+
+</p>
+
+<iframe width="100%" height="700px" src="http://plnkr.co/edit/fgYmPIXYatEJJUk4lbIj"></iframe>
+
+<h2>Question 2</h2>
+<p>
+ Ecrivez (sans toucher au html) le css permettant de reproduire le rendu suivant : 
+ <ul>
+  <li>Toutes les images disparaissent, toutes les adresses disparaissent </li>
+  <li>Les noms des universités restent</li>
+  <li>Pensez à optimiser vos sélecteurs !</li>
+</ul>
+
+<img style="border: 1px solid black" src="img/exo2.png">
+
+
+
+<br>
+</p>
+<iframe width="100%" height="700px" src="http://plnkr.co/edit/fdRraGyQW9VYjDvsK5uu"></iframe>  
+
+
+<h2>Question 3</h2>
+<p>
+ Ecrivez (sans toucher au html) le css permettant de reproduire le rendu suivant : 
+ <ul>
+  <li>Les deux derniers items sont en rouge </li>
+
+</ul>
+
+<img style="border: 1px solid black" src="img/exo3.png">
+<br>
+</p>
+<iframe width="100%" height="700px" src="http://plnkr.co/edit/y4kVLsLgho4dUT1p3TmY"></iframe>  
+
+
+<h2>Question 4</h2>
+<p>Essayez de comprendre pourquoi le texte s'affiche en orange</p>
+<iframe width="100%" height="700px" src="http://plnkr.co/edit/6bSqt2IBPz4LiBrsxEs4"></iframe>  
+
+
+
+
+<button onclick="sw()">Afficher la réponse </button>
+<div id="reponse"></div>
+<!-- <iframe style="display: none" width="100%" height="700px" src="temp.html"></iframe>   -->
+
+<h2>Question 5</h2>
+<p>
+  Ecrivez deux exemples de html correspondant au sélecteur css écrit dans style.css : 
+</p>
+<iframe width="100%" height="700px" src="http://plnkr.co/edit/6qiB8H1syJgytbS8zUqB"></iframe>  
+<!-- <p>p1</p>
+  <h1 class="kiwi">titre 1</h1>
+  <p>p2 <strong>coucou</strong> fin P2</p>
+  
+  
+  <p>p1</p>
+  <h1 class="kiwi">titre 1</h1>
+  <p>p2 <span><strong>coucou</strong></span> fin P2</p>
+-->
+
+
+<h2>Question 6</h2>
+<p>
+  Ecrivez deux exemples de html correspondant au sélecteur css écrit dans style.css : 
+</p>
+<iframe width="100%" height="700px" src="http://plnkr.co/edit/d6umIAJWOYdtYpuBymbt"></iframe>  
+<!-- <p title="petit kiwi vert">p1</p>
+     <p> p2 <strong class="info">strong</strong> fin p2</p>
+     
+     
+     <p title="kiwi vert">p1</p>
+     <p> p2 <strong class="info">strong</strong> fin p2</p>
+   -->
+
+
+   <h2>Question 7</h2>
+   <p>
+    Ecrivez un exemple de html correspondant au sélecteur css écrit dans style.css : 
+  </p>
+  <iframe width="100%" height="700px" src="http://plnkr.co/edit/gsn7rFesyIwRKlFBpKBV"></iframe>  
+
+
+  <!-- <form id="contact" action="destination.php" method="get" accept-charset="utf-8">
+        <p>   <label for="kiwi">kiwi</label> <input id="kiwi" type="text"/></p>
+     </form>
+   -->   
+
+
+
+   <h2 id="exo4" class="w3-xxlarge">Le positionnement : les règles de base</h2>
+   <hr style="width:50px;border:5px solid red" class="w3-round">
+   <p>
+    Une <a href="https://learn-the-web.algonquindesign.ca/topics/css-layout-cheat-sheet/">cheat sheet</a> sur les règles de base du positionnement.
+  </p>
+
+  <p><img src="img/strip2.jpg"></p>
+
+
+  <p>Cette section de cours a pour objectif de consolider et d'élargir vos connaissances des différents schémas de positionnement classiques utilisés : le positionnement en flux, le positionnement absolu, fixé ou relatif et le positionnement flottant. Nous verrons ensuite le positionnement via flex-box et enfin le positionnement avec bootstrap. <br>
+  Lorsque naît le web en 1994, sa portée est tout d'abord extrêmement limitée et essentiellement destinée à un monde d'étudiants ou de scientifiques. Adaptées à des documents de type principalement textuel, où les éléments sont disposés de façon linéaire, empilés les uns sur les autres (titres, paragraphes, listes), les CSS sont dépassés dès leur apparition par un Web en pleine ébullition : gigantesque marché naissant, internet ne pouvait se réduire à de simples pages textuelles et frustrer ainsi tous les graphistes en quête de l'aspect le plus vendeur pour leur vitrine. A l'heure actuelle, le positionnement se base principalement sur l'utilisation de framework tels que fondation ou bootstrap. Si désormais il est rare de gérer manuellement le positionnement de blocs dans un site web, il reste important de bien comprendre les bases du positionnement. Cette partie du cours est inspirée de "CSS avancées vers le html5 et CSS3, R Goetter" éditions Eyrolles</p>
+
+
+
+  <h2 >Modèle de boîte</h2>
+  <p>
+  Selon les spécifications du W3C, tout élément structuré par une balise HTML (ou plusieurs) se représente sous forme d'une boîte rectangulaire définie par diverses composantes que sont:</p>
+  <p>
+    <ul>
+      <li>la zone de son contenu, représentée par une largeur et une hauteur : en CSS, il s'agit des propriétés width et height</li>
+      <li>Un espace réservé à la bordure de la boîte (propriété border)</li>
+      <li>Une marge interne à la boîte (padding), se situant entre la zone de contenu et la bordure</li>
+    </ul>
+  </p>
+
+  <p>
+    Une dernière composante représente la marge externe (margin)  et se situe hors de la boîte, au-delà de l'espace alloué à la bordure. Elle affecte le positionnement de l'élément puisqu'elle pousse sa boîte ou ses soeurs environnantes.
+
+    Toutes ces composantes doivent être prises en considération : contrairement à ce que beaucoup pensent, un élément n'occupe pas uniquement l'espace déterminé par sa valeur width, mais aussi celui de ses marges internes padding  et ses bordures.
+
+
+  </p>
+
+
+  <p style="text-align: center;"><img src="img/box.png"></p>
+
+  <h2 class="w3-xxlarge">Dimension des éléments</h2>
+  <p>
+    Le calcul de la largeur réelle d'un élément est souvent mal appréhendé car l'attribut width ne désigne pas la largeur entière mais uniquement celle de la partie de contenu.
+
+    Prenons par exemple un paragraphe disposant des déclarations CSS suivantes :
+
+
+    <pre class="prettyprint">
+      <xmp>
+        p {
+        width: 100px;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #000;
+        background-color: yellow;
+      }
+    </xmp>
+  </pre>
+
+  <h3>Question 8</h3>
+
+  <p>
+    Quel est la largeur (totale) en pixels, de la boîte de paragraphe? N'oubliez pas de prendre l'habitude d'utiliser le debugger de votre navigateur.
+  </p>
+</p>
+<p><img src="img/css1.png"></p>
+
+
+<h2 class="w3-xxlarge">Fusion de marges</h2>
+
+<p>Nous allons étudier un cas un peu plus complexe dans lequel des éléments (boîtes) frères ou parents on tous des définitions de marges. Il faut que vous connaissiez les règles de fusion de marge. Dans l'exemple ci-desous les deux paragraphes ont des marges (verticales) de taille différentes.</p>
+
+<iframe width="100%" height="700px" src="http://plnkr.co/edit/7O34E2xEccsaETHe6bOs"></iframe>  
+
+<h3>Question 9</h3>
+
+<p>En utilisant le debugger de votre navigateur calculez l'espace séparant ces deux blocs. Qu'en concluez-vous ?</p>
+
+<h3>Question 10</h3>
+
+<p>Regardez l'exemple ci-dessous. La fusion de marges horizontales suit elle les mêmes règles que la fusion de marges verticales ?</p>
+<!-- <iframe style="width:100%;height:500px; " src="http://dabblet.com/gist/494fb5361dd468acd3e1bfd3f27188bd"> 
+</iframe> -->
+
+<iframe width="100%" height="700px" src="http://plnkr.co/edit/2151SvSucpg70eG54FF9?p=info"></iframe>  
+
+
+<h3>Rendu par défaut et flux courant</h3>
+
+<p>
+  L’ordre dans lequel apparaissent les balises dans le code HTML est celui dans lequel les boîtes sont affichées et s’empilent dans le document. Ce schéma de positionnement par défaut se nomme le flux courant. La mise en place des différents éléments de la page s’organise par défaut selon le flux courant. Les règles de positionnement dans le flux courant sont relativement simples et intuitives. Chaque élément :
+  <ul>
+    <li>est situé sur le même plan que l’autre dans le flux</li>
+    <li>se place le plus haut possible et le plus à gauche possible au sein de son parent</li>
+    <li>est dépendant de l’élément frère précédent : deux éléments de type block s’empilent verticalement l’un sous l’autre, deux éléments de type inline se suivent sur la même ligne s’ils en ont la place</li>
+  </ul>
+
+  Par défaut, chaque bloc est donc dépendant de ses frères immédiats. 
+</p>
+<h3>Question 11</h3>
+
+<p>
+  Complétez le CSS pour obtenir le résultat comme ci dessous. L'objectif est de bien comprendre l'impact du positionnement d'une balise bloc ou inline dans le flux.
+</p>
+
+
+<p><img src="img/placement.png"></p>
+
+<iframe width="100%" height="700px" src="http://plnkr.co/edit/2I3m8CszStJhbxMwloAJ?p=catalogue"></iframe>  
+
+
+<h3 class="w3-xxlarge">Positionnement absolu</h3>
+<p>Un élément est positionné en absolu quand il est affublé de la déclaration position:absolute.
+
+  Positionner un élément en absolu le retire du flux :
+  <ul>
+    <li>L’élément se retrouve sur un autre plan, placé au dessus du niveau du flux (un peu comme un calque sous photoshop)</li>
+    <li>Les éléments restants se réorganisent entre eux, dans le flux sans tenir compte de l’élément positionné en
+    absolu hors de leur plan d’affichage</li>
+  </ul>
+
+
+  Le positionnement se fait ensuite en utilisant les propriétés top, right, botton, left
+
+</p>
+<h3>Question 12</h3>
+
+
+<p>
+Jouez avec les différents paramètres pour bien comprendre le repositionnement dans le flux quand le bloc "info" est positionné de manière absolue;</p>
+
+
+<iframe width="100%" height="700px" src="http://plnkr.co/edit/8VwKtsLfLLJnx39PZxsL?p=catalogue"></iframe>  
+
+<p>
+  Nous avons bien avancé sur le concept du positionnement absolu, mais il nous manque encore une donnée essentielle : qui est donc ce fameux référent mentionné partout? L'erreur classique est de croire que le référent de tout élément positionné en absolu a comme référent l'écran. En fait, un élément positionné en absolu se place par rapport à son premier ancêtre positionné.
+
+  Le principe est le suivant : le bloc positionné en absolu remonte toute sa branche au sein de la hiérarchie dans le code HTML. Il vérifie si son parent est "positionné", c'est-à-dire s'il est muni de la propriété position à laquelle est associée une valeur. Si tel n'est pas le cas, il remonte d'une génération et ainsi de suite jusqu'à trouver un ancêtre positionné (en dernier recours la balise html sera  son référent).
+
+
+  Nous comprenons donc qu'il devient aisé d'indiquer une référence à un bloc absolu : il suffit d'appliquer une déclaration position: absolute, position: fixed ou position: relative à cet élément de référence.
+
+  Regardez les 2 images suivantes :
+
+
+
+  <p><img src="img/absolu1.png"></p>
+  <p><img src="img/absolu2.png"></p>
+
+
+  <h3>Question 13</h3>
+  <p>L'objectif ici est de bien comprendre comment une balise devient référente dans le placement absolu. Sans JAMAIS toucher à la ligne : top : 10px; left :10px;  Complétez le css afin de générer les deux mise en pages comme sur les photos au dessus. </p>
+
+  <iframe width="100%" height="700px" src="http://plnkr.co/edit/ariIplw8AKgYt1jzbhVo?p=catalogue"></iframe>  
+
+
+
+
+  <h2>Positionnement relatif</h2>
+  <p>
+    Un élément relatif se place par rapport à sa position classique dans le flux, puis est éventuellement décalé si au moins une des propriétés top,right,bottom,left est renseigné. La notion de relatif s'applique par conséquent à son placement initial dans le flux. Ici, les propriétés top,right,bottom,left servent à indiquer un décalage par rapport à la position initiale.
+  </p>
+  <h3>Question 14</h3>
+
+  <p>Comlpétez le css permettant d'obtenir le décalage comme ci-dessous. </p>
+
+  <p><img style="border:1px solid black" src="img/relative.png"></p>
+
+  <iframe width="100%" height="700px" src="http://plnkr.co/edit/vENPn3ZnkgDWrF7F69qm?p=catalogue"></iframe>  
+
+
+
+
+  <h2 class="w3-xxlarge">Positionnement flottant</h2>
+
+  <p>
+    Par définition, un élément flottant est ôté du flux et placé à l’extrême gauche (float: left) ou droite (float: right) de son conteneur, tout en demeurant sur sa hauteur de ligne initiale dans le flux. Dans les faits, le positionnement flottant s’avère complexe à utiliser car si l’élément est extrait du flux courant, il ne l’est que partiellement : les éléments précédant le bloc flottant ne sont pas affectés ; cependant, tous les éléments suivants
+    se réorganisent dans le flux comme dans le cas du positionnement absolu, sauf ... leur contenu qui, lui, s’écoule autour du flottant en épousant sa forme. Il est par conséquent nécessaire d’être très attentif au modèle de boite des éléments suivant le flottant : seule la
+  composante de contenu de la boite s’écoule autour de l’élément flottant qui la précède. En revanche, la boite elle même se repositionne dans le flux à la suite de la boite en flux précédent. Vous suivez toujours ? </p>
+
+
+  <iframe src="https://giphy.com/embed/S0fkVjadqdLDW" width="240" height="132" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/what-huh-that-doesnt-make-any-sense-S0fkVjadqdLDW"></a></p>
+
+  <h3>Question 14</h3>
+
+
+  <p> Complétez le code suivant afin de générer les 3 cas de figure ci-dessous :</p>
+  <p><img src="img/flux1.png"></p>
+  <p><img src="img/flux2.png"></p>
+  <p><img src="img/flux3.png"></p>
+
+  <iframe width="100%" height="700px" src="http://plnkr.co/edit/rRNHzDZI9tBLBp1Eh2kG?p=catalogue"></iframe>  
+
+
+
+  <p>A l’instar du positionnement absolu, un élément flottant adopte par défaut la largeur qu’occupe son contenu. Si celui-ci
+    est dense, elle est susceptible d’occuper toute la largeur du parent, c’est pourquoi il est souvent nécessaire de fixer
+    une largeur au flottant via la propriété width ou max-width.
+    Lorsqu’un élément flottant est poussé dans la même direction qu’un autre élément flottant, il demeure sur le même plan
+    et se cale à ses côtés (très utilisé pour les menus). Attention, gardez à l’esprit que le flottement est un positionnement
+    hors flux et qu’il n’a plus de prise sur les blocs alentours en flux, à l’exception des contenus qui vont "épouser" les flottants. Cela signifie qu’un parent ne contenant que des flottants n’occupera physiquement aucune surface à l’écran,
+  ou encore que les objets flottants vont dépasser de leur conteneur.</p>
+
+  <h3>Question 15</h3>
+
+
+  <p>Créez le CSS permettant (comme sur l’image ci-dessous) d’illustrer le cas de figure pour lequel le parent div
+  vide de contenu (exceptés les paragraphes) n’occupera pas physiquement de place sur la page.</p>
+
+
+
+  <p><img src="img/menu.png"></p>
+
+  <iframe width="100%" height="700px" src="http://plnkr.co/edit/vpeMnpwyB1GHs0TbAhKf?p=catalogue"></iframe>  
+
+
+
+
+  <p>La propriété clear est une sorte de passerelle entre deux plans du document : celui du flux courant et celui des
+    flottants. elle interdit à un élément de se placer sur la même ligne qu’un bloc flottant et le force par conséquent à se
+    caler directement en dessous de celui-ci. Elle autorise par ailleurs un nettoyage des flottants exclusivement à gauche
+  (clear: left), à droite (clear:right) ou les deux simultanément (clear:both).</p>
+
+  <h3>Question 16</h3>
+  <p>Créez le code HTML et CSS permettant d’obtenir la même disposition que sur l’image ci-dessous.</p>
+  <p><img src="img/float.png"></p>
+
+  <h3>Question 17</h3>
+  <p>Créez le code HTML et CSS permettant d’obtenir la même disposition que sur les trois images ci-dessous.</p>
+
+  <p><img src="img/float2.png"></p><p><img src="img/float3.png"></p><p><img src="img/exo1.png"></p>
+
+
+
+  <h2 id="exo4bis" class="w3-xxlarge">Exercices niveau 2</h2>
+  <hr style="width:50px;border:5px solid red" class="w3-round">
+
+  <h3>Question 18</h3>
+  <p>Regardez la vidéo suivante puis écrivez le css permettant de reproduire le même comportement.</p>
+
+  <video width="500" height="240" controls>
+    <source src="img/chat.m4v" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p>
+      Quelques indices : 
+      <ul>
+        <li>toutes les images ont la même taille</li>
+        <li>il faut faire en sorte que les paragraphes se suivent horizontalement (et plus les uns sous les autres)</li>
+        <li>au passage de la souris on fait apparaitre une bordure</li>
+        <li>chaque texte peut être placé en position relative ou absolue (comme vous préférez)</li>
+        <li>par défaut ce texte n'est pas visible (cherchez l'attribut css permettant de faire cela)</li>
+        <li>quand la souris est positionnée sur un paragraphe (et pas une image) le texte est maintenant visible</li>
+        <li>dans mon exemple le bandeau est de couleur  rgba(50,50,50,0.6); le texte est blanc et gras, la taille de la fonte est de 20px </li>
+      </ul>
+    </p>
+
+    <iframe width="100%" height="700px" src="http://plnkr.co/edit/Jwrz2v3hj9adtvqaz8c8?p=info"></iframe>  
+
+    <p>Une solution possible est disponible <a target="blank" href="http://plnkr.co/edit/vJ59RhMTxgRstEwQ1Tpz?p=preview">ici </a> </p>
+
+
+    <h3>Question 19</h3>
+    <p>Dans cet exercice vous allez créer un menu horizontal contenant un sous menu.</p>
+    <video width="500" height="240" controls>
+      <source src="img/menu.m4v" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <p>Partez du code suivant : </p>
+
+
+
+      <iframe width="100%" height="700px" src="http://plnkr.co/edit/otcTDnJ5pbU1jCNpokAS?p=preview"></iframe>  
+
+
+      <p>
+        Complétez le HTML permettant d'obtenir le rendu suivant :   <br>
+        <img style="border :1px solid black" src="img/menuSansCSS.png">
+      </p>
+
+      <p>
+        En suivant les indications ci-dessous, complétez le css permettant d'obtenir le rendu suivant :   <br>
+        <img style="border :1px solid black" src="img/menuAvecCSS.png">
+      </p>
+
+      <pre class="prettyprint">
+       <xmp>
+        // Trouver le sélecteur de : ul principal de la div menu
+        ????{
+        margin:0;
+        padding:0;
+        ????; // enelever les points mis par défaut devant chaque item
+        ????; //le texte doit être centré
+      }
+      //Trouver le sélecteur de : tous les li dans la div menu
+      ????{
+      ????;//modifier le flux afin que tout soit aligné
+      margin:auto;
+      padding:0;
+      ????; //le fond de chaque zone est vert;
+    }
+    //Trouver le sélecteur de : tous les liens dans un li contenu dans une div menu
+    ????{
+    ????;// par défaut un lien est inline, on ne peut pas lui donner de taille. Quelle est sa propriété d’affichage permettant de lui donner une taille ?
+    width:100px;
+    color:white;
+    ????; // les liens ne doivent plus être soulignés
+    padding:5px;
+  }
+  //Trouver le sélecteur de : tous les liens survoles à la souris dans un li contenu dans une div menu
+  ????{
+  color:#FFD700;
+}
+</xmp>
+</pre>
+
+<p>A ce stade, le sous menu (le <span class="code">ul</span> contenant les 3 sous-items) est constamment affiché (alors qu'on le souhaite déroulant). La première étape consiste à faire disparaitre, par défaut, ce sous menu. Pour cela il faut initialiser à une valeur précise de l'attribut <span class="code">display</span>. Trouver le code css permettant de parvenir à l'affichage désiré (un sélecteur et une ligne de css à écrire).  </p>
+
+
+
+<p>Pour afficher le sous menu au passage de la souris, il faut utiliser la propriété <span class="code">hoover</span>. Complétez le code suivant afin de parvenir à l'affichage désiré.</p>
+
+<pre class="prettyprint">
+ <xmp>
+  #menu  ???? {
+  display : ????;
+}
+</xmp>
+</pre>
+<p>Le sous-menu s'affiche de manière horizontale, alors que l'on souhaite un affichage vertical. Pour cela, il faut utiliser la propriété <span class="code">float</span>. Complétez le code suivant afin de parvenir à l'affichage désiré (celui de la vidéo).</p>
+
+<p>Une solution possible est disponible <a target="blank" href="http://plnkr.co/edit/BJsGaczesrwIeHsdJU0r?p=preview">ici </a> </p>
+
+<pre class="prettyprint">
+ <xmp>
+  #menu ????{
+  float : ????;
+}
+</xmp>
+</pre>
+
+<h3>Question 19</h3>
+
+
+Si l'on souhaite imprimer la page Web que vous venez de créer, votre navigateur imprimera par défaut l'ensemble de votre page. Hors, on peut souhaiter ne pas imprimer les menus, on peut également souhaiter changer la couleur du texte, l'orientation de la page...
+
+Le bon réflexe est de créer un second fichier CSS (print.css) et de faire le lien vers ce fichier depuis la page web que vous avez créée.
+<pre class="prettyprint">
+ <xmp>
+  <link rel="stylesheet" type="text/css" href="style.css" title="CSS principal" />
+  <link rel="stylesheet" type="text/css" media="print" href="print.css" />
+</xmp>
+</pre>
+
+
+<p>Récupérez le code source d'un très joli site depuis votre invité de commande : <span class="code">wget -r http://www.villardieres.com</span></p>
+
+<p>Par défaut (sur mon navigateur) cela donne l'impression suivante : <br>
+
+  <img style="border :1px solid black" src="img/img-printDefault.png">
+</p>
+
+
+<p>Créez le css du print permettant d'obtenir le résultat suivant : seuls le titre et le texte restent. Le texte doit être grossi pour qu'il soit bien lisible à l'impression </p>
+
+
+
+
+
+
+<img style="border :1px solid black" src="img/result.png">
+</p>
+
+<p>Une solution est disponible <a target="blank" href="http://plnkr.co/edit/hUfDS3IiKQH41GcRh6sq?p=catalogue">ici</a></p>
+
+<h3>Question 20</h3>
+
+<p>
+  Le Lien ci-dessous vous amène à un code utilisant uniquement du css/html pour réaliser de jolies animations. Etudiez ce code. Trois étudiants passeront au tableau pour commenter le code qui leur a été attribué (tout le monde n'a pas le même code).
+  
+  <div id="code"></div>
+  
+</p>
+</p>
+
+
+
+</p>
+
+
+<h2 id="exo5" class="w3-xxlarge">Le positionnement : flex-box</h2>
+<hr style="width:50px;border:5px solid red" class="w3-round">
+
+
+<p>Plusieurs passages de ce cours sur flex-box sont extraits des (très bons sites)  : <a href="https://www.alsacreations.com/tuto/lire/1493-css3-flexbox-layout-module.html">Alsacréation</a>, <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Disposition_flexbox_CSS/Utilisation_des_flexbox_en_CSS">mozilla</a>, <a href="https://la-cascade.io/layout-sur-12-colonnes-avec-flexbox/"> la casccade</a>.
+J'ai extrait de ces tutos les définitions des propriétés les plus utiles. Je vous encourage à faire entièrement ces tutos.</p>
+
+
+
+
+
+
+
+<p>
+  Nous venons de voir le modèle de boîte classique en CSS et ses dispositions de type “block” ou “inline”, sachez que Flexbox CSS3 a été conçu pour étendre ce périmètre en introduisant un nouveau modèle de boîte distinct, que l’on appellera “le Modèle de boîte flexible”.
+
+  Au sein de ce schéma, on ne raisonne plus en “block” ou “inline”, ni même en float ou autres types de boîtes “classiques” CSS, mais en “Modèle de boîte flexible”, dont les quatre possibilités principales sont :
+  <ul>
+    <li>Distribution des éléments horizontale ou verticale, avec passage à la ligne autorisé ou non,</li>
+    <li>Alignements et centrages horizontaux et verticaux, justifiés, répartis,</li>
+    <li>Réorganisation des éléments indépendamment de l’ordre du flux (DOM),</li>
+    <li>Gestion des espaces disponibles (fluidité).</li>
+  </ul>
+</p>
+
+
+
+<p>FlexBox (pour Flexible Box) est un mode de mise en page prévoyant une disposition des éléments d’une page de telle sorte que ces éléments possèdent un comportement prévisible lorsqu’ils doivent s’accommoder de différentes tailles d’écrans/appareils. Les points forts :
+  <ol>
+    <li>Distribution des éléments horizontale ou verticale, avec passage à la ligne autorisé ou non,</li>
+    <li>Alignements et centrages horizontaux et verticaux, justifiés, répartis,</li>
+    <li>Réorganisation des éléments indépendamment de l’ordre du flux (DOM),</li>
+    <li>Gestion des espaces disponibles (fluidité).</li>
+  </ol>
+
+  <p>Un peu de vocabulaire :
+    <br>
+    <img width="50%" src="img/flex.png">
+  </p>
+
+
+  <h4> 1- Conteneur Flex (Flex Container)</h4>
+  <p>
+  L’élément parent dans lequel chaque élément flex sera contenu. Un conteneur flex est défini lorsque la propriété display possède la valeur flex ou inline-flex.</p>
+  <h4> 2- Élément flex (Flex item)</h4>
+  <p>Chaque enfant d’un conteneur flex devient un élément flex. Le texte directement contenu dans un conteneur flex est englobé dans un élément flex anonyme.</p>
+  <h4>3- Axes</h4>
+  <p>Toute boîte suit deux axes : L’axe principal (main axis) sur lequel les éléments flex se suivent. L’axe secondaire (cross axis) est perpendiculaire à l’axe principal.
+    <ul>
+      <li> La propriété flex-direction établit l’axe principal.</li>
+      <li> La propriété justify-content définit comment les éléments flex sont positionnés le long de l’axe principal sur la ligne courante.</li>
+      <li> La propriété align-items définit comment les éléments flex sont positionnés le long de l’axe secondaire sur la ligne courante.</li>
+      <li> La propriété align-self définit comment un seul élément flex est aligné sur l’axe secondaire et surcharge le comportement par défaut défini par align-items.</li></ul></p>
+      <h4>4- Directions</h4>
+      <p>Le début/fin du côté principal et du côté secondaire du conteneur flex décrit l’origine et la fin du flux d’éléments flex. Ils suivent l’axe principal et secondaire du conteneur flex dans le sens établi par writing-mode (gauche-vers-droite, droite-vers-gauche, etc.).
+        <ul>
+          <li> La propriété order ordonne les éléments d’un groupe et détermine quel élément va apparaitre en premier.</li>
+          <li> La propriété flex-flow raccourcis les propriétés flex-direction et flex-wrap pour positionner les éléments flex.</li>
+        </ul>
+      </p>
+      <h4>5- Lignes (Lines)</h4>
+
+      <p>Les éléments flex peuvent être positionnés soit sur une seule ligne, soit sur plusieurs lignes via la propriété flex-wrap, qui contrôle la direction de l’axe secondaire et la direction dans chaque nouvelle lignes rajoutées.
+        Dimensions
+        Les termes désignant la hauteur et la largeur des éléments flex sont la taille principale (main size) et la taille secondaire (cross size), qui suivent respectivement l’axe principal et l’axe secondaire du conteneur flex.
+        <ul>
+          <li> Les propriétés min-height et min-width ont une valeur initiale de auto.</li>
+          <li> La propriété flex est un raccourci des propriétés flex-grow, flex-shrink et flex-basis pour
+          établir la flexibilité des éléments flexibles.</li>
+        </ul>
+      </p>
+
+    </p>
+
+
+    <h3>Testez par vous même</h3>
+
+    <iframe style="width:100%;height:500px; " src="http://plnkr.co/edit/w9BJi2FtWt5UELHn4SAN?p=preview"> 
+    </iframe>
+
+    <h3>flex-direction</h3>
+    <p>
+      La distribution, c’est à dire le sens d’affichage horizontal ou vertical des éléments "flex-items" est définie par la propriété flex-direction dont les valeurs peuvent être :
+
+      <ul>
+        <li>row (distribution horizontale, valeur par défaut)</li>
+        <li>row-reverse (distribution horizontale inversée)</li>
+        <li>column (distribution verticale)</li>
+        <li>column-reverse (distribution verticale inversée)</li>
+      </ul>
+    </p>
+
+    <h3>flex-wrap</h3>
+    <p>
+      La propriété flex-wrap définit si le contenu sera distribué sur une seule ligne (ou colonne selon l’axe principal) ou sur plusieurs lignes. En clair, si les "flex-items" ont le droit de passer à la ligne ou non.
+
+      Les valeurs de flex-wrap sont :
+      <ul>
+        <li> nowrap (les éléments ne passent pas à la ligne, valeur par défaut)</li>
+        <li>wrap (les éléments passent à la ligne dans le sens de lecture)</li>
+        <li>wrap-reverse (les éléments passent à la ligne dans le sens inverse)</li>
+      </ul>
+    </p>
+
+    <h3>justify-content et align-items</h3>
+    <p>
+      Flexbox propose de gérer très finement les alignements et centrages, en différenciant les deux axes d’affichage de cette manière :
+      <ul>
+        <li>L’alignement dans l’axe principal est traité via la propriété justify-content</li>
+
+        <li> L’alignement dans l’axe secondaire est géré avec align-items</li>
+      </ul>
+
+
+      Ces deux propriétés s’appliquent au "flex-container".
+    </p>
+    <p>
+      Axe principal : justify-content<br/>
+
+      Les alignements dans l’axe de lecture principal sont définis à l’aide de la propriété justify-content, dont les valeurs possibles sont :
+      <ul>
+        <li> flex-start (éléments positionnés au début du sens de lecture, valeur par défaut)</li>
+        <li>flex-end (éléments positionnés à la fin)</li>
+        <li>center (position centrale)</li>
+        <li>space-between (répartition “justifiée”)</li>
+        <li>space-around (variante de répartition “justifiée”)</li>
+      </ul>
+
+    </p>
+
+
+    <p>
+      Dans l’axe secondaire (axe perpendiculaire à l'axe principal), les alignements sont régis via la propriété align-items, dont les valeurs sont :
+      <ul>
+        <li> flex-start (au début)</li>
+        <li>flex-end (à la fin)</li>
+        <li>center (au centre)</li>
+        <li>baseline (généralement identique à flex-start)</li>
+        <li>stretch (étirés dans l’espace disponible, valeur par défaut)</li>
+      </ul>
+    </p>
+
+
+
+    <p>Un guide très bien fait sur flex-box est disponible <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">ici</a>.</p>
+
+    <h2>Exercices</h2>
+    <p>Le site <a href="https://flexboxfroggy.com">https://flexboxfroggy.com</a> propose quelques exercices très bien faits pour travailler le flex. Faisons en quelques-uns ensemble puis finissez à la maison.</p>
+    <p><img width="500px" src="img/frog.png"></p>
+
+    <h4>6- Taille minimale d’un élément</h4>
+    <p>
+      La propriété flex-basis détermine la base de flexibilité utilisée comme taille initiale principale pour un élément flexible. 
+      Testez <a href="https://www.w3schools.com/cssreF/tryit.asp?filename=trycss3_flex-basis">ce code</a>  et faites varier flex-basis de main #div : auto ou 100px ou un pourcentage. Observez la largeur prise par l'ensemble des boites par rapport à la <span class="code">div#main</span> qui fait 300 pixels de large.
+
+      <h4>7- Taille d’un élément relativement à celle des ses voisins</h4>
+    </p>
+    La propriété flex-grow définit le facteur d'expansion d'un élément flexible. Elle indique la quantité d'espace que l'élément devrait consommer dans un conteneur flexible relativement à la taille des autres éléments du même conteneur. Si tous les éléments voisins possèdent le même facteur d'expansion, ils recevront tous la même part d'espace.
+
+    Faites varier les valeurs de <span class="code">flex-grow</span> et observez comment se répartissent les écarts.
+
+
+    <iframe style="width:100%;height:500px; " src="http://plnkr.co/edit/kA4tSUkfaDTNcdiFbGHs?p=info"> 
+    </iframe>
+
+    <p>Toujours avec ce code, entrez un long texte dans le permier item. vous devriez observer que les proportions définies avec <span class="code">flex-grow</span> ne sont plus respectées.</p>
+
+
+    Le calcul précis permettant de comprendre comment le rendu est fait est expliqué <a href="https://css-tricks.com/flex-grow-is-weird/"> ici </a>. C'est un peu technique. Surtout observez qu'il est recommandé d'utiliser <span class="code">flex-grow</span> avec <span class="code">flex-basis</span>
+
+    <p>
+
+      <h4>8- Réduire la taille d’un élément relativement à celle des ses voisins</h4>
+      <p>La propriété <span class="code">flex-shrink</span> permet de définir comment un item peut rétrécir en fonction des éléments flexibles contenus dans le même conteneur.</p>
+
+      <p>La valeur par défaut est 1 (ce qui signifie que l'item ne rétrécit pas par défaut), et le facteur de rétrécissement est multiplié par le flex basis lorsqu'il distribue l'espace négatif aux items flex.Qu'est-ce que l'espace négatif ? C'est l'espace qui excède la dimension du container principal. Avec flex-shrink, on répartit cet espace négatif, en multipliant pour chaque item sa taille initiale par le ratio de flex-shrink. Bref, à l'inverse de flex-grow, qui sert à répartir de l'espace positif entre les items en permettant leur agrandissement selon certaines proportions, flex-shrink sert à répondre à la question : “comment rétrécir de manière ordonnée mes items pour tout faire rentrer dans le container ? (déifinition issue de <a href="https://la-cascade.io/flex-shrink/">https://la-cascade.io/flex-shrink/</a>
+        <br>
+        Pour que pour que <span class="code">flex-shrink</span> ait un effet visible, il faut que la somme des tailles par défaut des flex-items dépasse du conteneur.
+      </p>
+
+      <p>Dans le code ci-desous testez les combinaisons suivantes pour les valeurs de <span class="code">flex-shrink</span> et retrouvez à quelle image cette combinaison correspond : (0,0), (1,0), (1,1), (1,4).
+
+        <br>
+
+        <img width="800px" src="img/0-0.png"><br>
+        <img width="800px" src="img/1-1.png"><br>
+        <img width="800px" src="img/1-0.png"><br>
+        <img width="800px" src="img/1-4.png"><br>
+
+
+      </p>
+
+      <iframe style="width:100%;height:500px; " src="http://plnkr.co/edit/xPL6j9fWfXKWjdEuoqoV"> 
+      </iframe>
+
+
+      <p>Je vous encourage à regarder <a href="https://medium.freecodecamp.org/even-more-about-how-flexbox-works-explained-in-big-colorful-animated-gifs-a5a74812b053">ce site</a>. Il contient un bon nombre d'animations qui aident à comprendre le comportement du positionnement par flex en fonction de la taille de la page.</p>
+
+      <h4>9- Tout en 1</h4>
+
+
+      <p>La propriété flex est une propriété raccourcie qui définit la capacité d'un élément flexible à modifier ses dimensions afin de remplir l'espace disponible de son conteneur. Les éléments flexibles peuvent être étirés ou réduits pour utiliser un espace proportionnel à leur coefficient de grossissement ou de rétrécissement afin de ne pas dépasser d'un conteneur. Les propriétés détaillées correspondantes à cette propriété raccourcie sont  flex-grow, flex-shrink et flex-basis</p>
+
+
+      <p>Dans le code ci-dessous je vous au préparé 7 cas de figure différents. Etudiez chacun d'eux.</p>
+
+      <iframe style="width:100%;height:500px; " src="http://plnkr.co/edit/O3EdcgCpyzuX7rerfIGO?p=preview"> 
+      </iframe>
+
+      <h4>10 Création de layout avec Flex</h4>
+
+      <p>Regardons ensemble l'exemple ci-desous :</p>
+
+      <iframe style="width:100%;height:500px; " src="http://plnkr.co/edit/gDYhkqNYeKEuYBnunK5H"> 
+      </iframe>
+
+      <p>Codez maintenant ce layout en utlisant Flex <br> 
+
+        <img src="img/layout.png"> <br>
+
+        sachant que le html est 
+
+
+        <pre class="prettyprint">
+         <xmp>
+          <body>
+            <nav class="outer-col-1">Nav</nav>
+            <div class="outer-col-2">
+              <header>Header</header>
+              <div class="inner-row">
+                <div class="inner-col">
+                  <article>Article</article>
+                  <footer>Footer</footer>
+                </div>
+                <aside>Aside</aside>
+              </div>
+            </div>
+          </body>
+        </xmp>
+      </pre>
+    </p>
+
+    <p>Une solution est disponible   <a href="http://plnkr.co/edit/n7PAFv4eO6YKVhEMDMDD?p=preview">ici</a>.</p>
+    <!-- https://www.quackit.com/css/flexbox/examples/flexbox_website_layout_examples.cfm -->
+
+
+
+    <h2 id="exo6" class="w3-xxlarge">Le positionnement : bootstrap</h2>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+
+    <img src="img/strip_2.jpg">
+    <p>La vesion 4 de bootstrap est basée sur FlexBox (la version 3 utilisait le flux). Bootstrap aide à positionner les éléments sur une page. La grille de Bootstrap comporte généralement 12 colonnes sur lesquelles on peut poser les éléments.  Bootstrap définit la notion de containers, row et col.  Source ayant servies à écrire le contenu de cette section <a href="https://www.quackit.com/bootstrap/bootstrap_4/tutorial/bootstrap_grid_system.cfm">1</a>,<a href="https://getbootstrap.com/docs/4.3/layout/grid/">2</a> : </p>
+
+    <p>Il est impossible ici de passer en revue l'ensemble des fonctionnalités de la V4 de bootstrap. Je vous propose ici de voir l'essentiel.</p>
+
+    <h4>Les container</h4>
+    <p>Un conteneur fixe <span class="code">container</span> est un conteneur à largeur fixe. Lorsque vous redimensionnez votre navigateur la taille est prédéfinie. Cela donne l'impression de passer instantanément d'une taille à une autre.</p>
+
+    <p>Un conteneur fixe <span class="code">container-fuild</span> est un conteneur qui prend constamment toute la largeur de la page.</p>
+
+    <p>Testez le code ci-après en faisant varier la largeur de la page.</p>
+
+    <iframe style="width:100%;height:500px;" src="http://plnkr.co/edit/ayCemzxRSCCe5attVkg9"> 
+    </iframe>
+
+
+    <h4>Le système de grille</h4>
+    <p>Le systèmes de grille permet de créer des mises en page avancées à l'aide de <span class="code">row</span> et de <span class="code">col</span>. Le système de grille Bootstrap peut avoir jusqu'à 12 <span class="code">col</span>, et vous pouvez spécifier comment ces <span class="code">col</span> s'adaptent à différentes tailles de fenêtres.</p>
+
+    <p>Après voir défini un <span class="code">container</span> vous pouvez ajouter autant de <span class="code">row</span> que vous le souhaitez. 
+      Les <span class="code">row</span> contiennent une ou plusieurs <span class="code">col</span>  (somme égale à 12) dans lesquels on retrouve le contenu. Seules les <span class="code">row</span> peuvent être des enfants immédiats des lignes.</p>
+
+      <p>Le tableau suivant montre comment différentes options de grille fonctionnent avec différentes tailles de fenêtres.</p>
+
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th></th>
+              <th>
+                Extra small
+                <small>&lt;576px</small>
+              </th>
+              <th>
+                Small
+                <small>&ge;576px</small>
+              </th>
+              <th>
+                Medium
+                <small>&ge;768px</small>
+              </th>
+              <th>
+                Large
+                <small>&ge;992px</small>
+              </th>
+              <th>
+                Extra large
+                <small>&ge;1200px</small>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="text-nowrap" scope="row">Comportement de la grille</th>
+              <td>Systématiquement horizontal</td>
+              <td colspan="4">Replié au début, horizontal au-dessus des points de rupture indiqués sur la ligne du dessus</td>
+            </tr>
+            <tr>
+              <th class="text-nowrap" scope="row">Max container width</th>
+              <td>None (auto)</td>
+              <td>540px</td>
+              <td>720px</td>
+              <td>960px</td>
+              <td>1140px</td>
+            </tr>
+            <tr>
+              <th class="text-nowrap" scope="row">Préfixe de la classe</th>
+              <td><code>.col-</code></td>
+              <td><code>.col-sm-</code></td>
+              <td><code>.col-md-</code></td>
+              <td><code>.col-lg-</code></td>
+              <td><code>.col-xl-</code></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+
+
+      <p>Étudiez l'exemple ci-dessous. Observez particulièrement le comportement de la cinquième ligne en fonction de la taille de la fenêtre.</p>
+
+
+
+
+
+
+      <p><video width="500" height="240" controls>
+        <source src="img/exo-boot.m4v" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </p>
+      <iframe style="width:100%;height:500px;" src="http://plnkr.co/edit/V4n1P8fPADHhOfLjmh0z?p=preview"> 
+      </iframe>
+
+
+
+      <p>Codez la page permettant d'obtenir le résultat suivant : </p>
+
+
+
+      <p>Une solution est disponible <a href="http://plnkr.co/edit/1CaxRD7PcRoU57WHmLLD?p=preview">ici</a>.</p>
+
+
+
+      <h4>Alignement horizontal et vertical</h4>
+
+      <p>
+        Dans cette version de Bootsrap, plusieurs mécaniques utilisent directement flex. C'est le cas de l'alignement.
+        Dans l'exemple ci-dessous, chaque <span class="code">row</span> à son attribut <span class="code">min-height</span> définit à une taille prédéfinie. Comme pour Flex il est possible de spécifier comment s’alignent les boites. Dans cet exemple vous observerez qu'il n'y a pas de chiffre associé à chaque classe de colonne <span class="code">< div class="col"></span>. C'est ce qu'on appelle de "l'auto-layout columns". Bootstrap divise simplement l'espace disponible en partie égales. Plus d'informations <a href="https://getbootstrap.com/docs/4.3/layout/grid/#auto-layout-columns">ici.</a>
+      </p>
+      <iframe style="width:100%;height:500px;" src="http://plnkr.co/edit/UlLSVHMFhsuMmgo3OP8q?p=preview"> 
+      </iframe>
+
+
+
+
+
+      <h4>Ré-ordonner les boites.</h4>
+
+      <p>
+        Comme pour flex, il est possible de réordonner les boites en utilisant l'attribut <span class="col">order-*</span>. 
+      </p>
+      <iframe style="width:100%;height:500px;" src="http://plnkr.co/edit/xnGCE5CQCtiqxCQeKAIs?p=preview"> 
+      </iframe>
+
+      <h4>Le Décalage de colonnes</h4>
+
+      <p>
+        Afin de laisser des espaces vides dans les <span class="code">row</span>, il est possible de décaler les colonnes dans grille. Pour cela il faut utiliser l'attribut <span class="code">.offset-md-*</span> qui indique, selon la largeur de l'écran (ici md), de combien de colonnes il faut se décaler avant d'intégrer le nouveau contenu.
+      </p>
+      <iframe style="width:100%;height:500px;" src="http://plnkr.co/edit/QesZ20zjyVr2FmrSwzWF?p=preview"> 
+      </iframe>
+
+
+      <h4>Les composants bootstrap</h4>
+
+
+      <p>
+        Dans cette version 4, bootstrap augmente encore le nombre de composants "prêts à servir" : boutons, carrousel, formulaires, fenêtres pop, progess bar, ...
+        Ils sont listés <a href="https://getbootstrap.com/docs/4.3/components/alerts/">ici</a>
+      </p>
+
+
+      <p>
+        Une extrêmement utile est le composant <span class="code">navbar</span>. Ce composant intègre  (entre autre) les classes suivantes permettant de construire "facilement" une barre ne navigation standard. Étudions ensemble le barre de navigation suivante : 
+      </p>
+      <iframe style="width:100%;height:500px;" src="http://plnkr.co/edit/2aIvNLa7DyMmJGyNG3cU?p=preview"> 
+      </iframe>
+
+
+
+
+
+
+      <h2 id="exo7" class="w3-xxlarge">Exercice niveau 3</h2>
+      <hr style="width:50px;border:5px solid red" class="w3-round">
+
+      <p>Réalisez l'intégration de la page ci-dessous.</p>
+      <p>
+        <img src="img/site.png">
+      </p>
+      <p>
+        <video width="1000" height="480" controls>
+          <source src="img/site.m4v" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </p>
+
+        <p>
+          Toutes les ressources nécessaire sont présentes sur le <a href="https://www.iut.u-bordeaux.fr/info/">site du département</a>
+        </p>
+
+
+        <p>Pour réaliser ce site il va falloir lire un peu de documentation. Quelques liens intéressants pouvant vous aider à bien comprendre le code. 
+          <ul>
+            <li>la classe <a href="https://getbootstrap.com/docs/4.0/components/jumbotron/">jumbotron</a></li>
+            <li>Unités de mesure <a href="https://connect.adfab.fr/dev/dev-front/unite-de-mesure-css-rem">lien 1</a>, <a href="http://www.pompage.net/traduction/dimensionner-ses-fontes-avec-rem">lien 2</a></li>
+            <li><a href="https://getbootstrap.com/docs/4.0/utilities/colors/">la gestion des couleurs</a></li>
+            <li><a href="https://getbootstrap.com/docs/4.0/components/buttons/">les boutons</a></li>
+            <li>la gestion <a href="https://getbootstrap.com/docs/4.0/utilities/spacing/">simplifiée des espacements</a></li>
+          </ul>
+
+
+        </p>
+
+
+
+
+
+        <h3>Exercice d'intégration</h3>
+        <p>
+          Dans les grandes lignes, un projet web suit les étapes suivantes :
+
+          <ol>
+            <li>Rédaction du cahier des charges</li>
+            <li>Charte graphique - Web Design</li>
+            <li>Mise en pré production : création technique du site et des fonctionnalités, intégration des graphiques et textes
+            ...</li>
+            <li>pré-optimisation SEO</li>
+            <li>Formation à l’utilisation de l’administration ( cas d’un site dynamique ) et plus globalement transfert de compétence
+            du prestataire au client</li>
+            <li>Mise en ligne officielle du site internet</li>
+            <li>Référencement</li>
+            <li>Suivi, assistance</li>
+          </ol>
+
+          Cet exercice va vous permettre de tester vos capacités à réaliser l’étape 3, c’est-à-dire celle consistant à récupérer le travail du web designer et de fournir une première version HTML/CSS/JS du site.
+          <br>
+          Vous allez devoir réaliser la page d’accueil du site Hexaconf. Ce site a pour objectif de référencer les conférences
+          françaises parlant du numérique. Voici un extrait du cahier des charges.
+        </p>
+
+        <p>
+          Chaque année en France, un grand nombre de conférences sont organisées afin de mettre en avant le secteur du web
+          et plus généralement celui du numérique. Ces conférences ont chacune leur spécificités. Le site a pour ambition de
+          présenter les conférences les plus intéressantes et d’en permettre une présentation pertinente.
+          Objectifs opérationnels :
+          La partie vitrine du site web doit permettre aux internautes en général, et plus particulièrement à ceux ayant un intérêt
+          envers le numérique, d’accéder à une information pertinente sur les contenus et objectifs de la formation. Le site devra
+          donc donner accès à un contenu riche sur les conférences se tenant en France. Il doit permettre de fournir des outils
+          simples et efficaces permettant de rechercher des conférences selon divers critères.
+          Ce site se veut également communautaire. Un internaute doit pouvoir proposer une conférence qui, une fois modérée,
+          fera parti du site. La mise en place et le développement du site web visera ainsi à atteindre plusieurs objectifs concomitants
+          :
+
+          <ul>
+            <li>Objectif 1 : Informer Un site dynamique diffusant des informations accessibles et réutilisables Le site web doit présenter
+              ce pour quoi il a été créé (cf. ci-dessus). Combinant stock, liens et flux d’informations, il doit permettre de produire,
+              mettre en forme, et diffuser des informations détaillées (avec des liens vers des sites externes.) La mise à jour des
+              contenus doit reposer sur un système simple (utilisable par des non-spécialistes) et réactif (rapidité d’exécution). Les
+              contenus publiés doivent respecter les normes en matière d’accessibilité pour être lus par le plus grand nombre quel
+            que soit le matériel utilisé.</li>
+            <li>Objectif 2 : Administrer Le site contiendra une partie (accessible uniquement par authentification) permettant de saisir/
+              visualiser des informations. Tout comme pour la partie vitrine du site, les pages doivent respecter les standards de
+            l’accessibilité et ergonomie permettant, à un non spécialiste d’utiliser de manière intuitive et efficaces ces services.</li>
+          </ul>
+        </p>
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Modal for full size images on click-->
+        <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+          <span class="w3-button w3-black w3-xxlarge w3-display-topright">&times;</span>
+          <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+            <img id="img01" class="w3-image">
+            <p id="caption"></p>
+          </div>
+        </div>
+
+        <!-- Services -->
+
+
+        <p> 
+          Le prestataire est chargé de conseiller le département et de concevoir, en collaboration avec la personne responsable
+          du design dans l’équipe de maitrise d’ouvrage, le design d’information (arborescence du site, organisation des contenus
+          centrée sur l’utilisateur et ses usages, écriture adaptée au web), la ligne graphique (respect de l’identité visuelle,
+          attrait et convivialité) et l’ergonomie de navigation (simple et intuitive, réduction maximale du temps d’apprentissage
+          requis pour se repérer et trouver l’information recherchée) qui seront appliqués au site . Ce travail de conception fera
+          l’objet d’une charte répertoriant l’ensemble des principes retenus et illustrés par des écrans types et fonctionnels.
+          Cette charte permettra : d’assurer une cohérence de fond et de forme à l’ensemble de l’offre de contenus et services
+          proposée sur le site et de faciliter son intégration au moment de l’installation de la solution technique.
+
+        </p>
+
+
+        <p>Pour aider le Département informatique de l’IUT a constitué le socle initial des contenus qui seront proposé au moment
+          de l’ouverture du site au public, le prestataire s’engage à créer et publier les pages dans la limite d’un volume de : 6 pages.
+          <br>
+          La page d’accueil permettra de fournir une information claire et ciblée sur le contenu du site. Elle devra automatiquement
+          mettre en avant la conférence la plus proche dans le temps et la conférence la mieux notée par les utilisateurs
+          du site Une page donnant accès à un descriptif des différentes conférences et de pouvoir y réaliser des recherches
+          selon des critères prédéfinis. A chaque conférence il faudra associer, au minimum, les informations suivantes : lieu,
+          date, sujets (des tags parmi un ensemble de tags prédéfinis : technique, sociale, entrepreneuriat, ...), prix, âge de la
+          conférence, taille de la conférence, si elle stream, si elle met ensuite sur internet les vidéos/slides des présentations,
+          langues des présentations anglais et/ou français ; liens vers comptes réseaux sociaux. Chaque conférence peut être
+          notée par un internaute. Il faut pouvoir laisser une note (système d’étoiles) indiquant ce qu’on a pensé de la qualité de
+          la conférence (idéalement après y avoir assisté). Chaque conférence proposera, aux internautes identifiés la fonction
+          suivre. Cette fonction permet d’être tenu au courant par mail à J-15 du début de la conférence. Une page donnant
+          accès à un calendrier dans lequel figure la tenue des conférences. Ce calendrier doit pouvoir être importé aux formats
+          classiques. Une page permettant de proposer une conférence qui sera ajoutée sur le site après modération. Proposer
+          une conférence nécessite d’être identifié (et donc d’avoir créé un compte) Un formulaire de contact permettant de
+          s’inscrire au site. Une page positionnant toutes les conférences sur une carte de France et mettant graphiquement la
+          conférence la plus proche géographiquement de l’internaute.
+
+        </p>
+
+        <p>Les (re)sources sont disponibles <a href="files/forStudent.zip">ici</a></p>
+
+
+        <h2 id="exo2" class="w3-xxlarge">Intégration</h2>
+        <hr style="width:50px;border:5px solid red" class="w3-round">
+        <p>
+          Nous vous fournissons les fichiers créés par l’équipe de web designers. Vous disposez d’une maquette (format image)
+          de la page d’accueil ainsi que les pictos créés pour l’occasion.
+          L’image ci-dessous vous donne un idée globale de ce à quoi doit ressembler le site. syntaxe est similaire à chacune des valeurs. 
+
+        </p>
+
+        <p><img src="img/hexa1.png"></p>
+
+
+        <h3>Question 1</h3>
+        <p>
+          Proposez un découpage de cette page d’accueil.
+        </p>
+
+
+
+        <h3>Question 2</h3>
+
+
+        <p>Réalisez l’intégration de cette page d’accueil. Vous êtes libres d’utiliser le framwork CSS que vous voulez (et
+        même de ne pas en utiliser).</p>
+
+
+
+        <h2 id="exo8" class="w3-xxlarge">HTML/CSS avancé</h2>
+        <hr style="width:50px;border:5px solid red" class="w3-round">
+
+        <img src="img/stripqualite.jpg">
+
+
+        <h3>Création d'un formulaire</h3>
+
+        <p>
+          Dans le grand chantier du html5, une place d’honneur a été réservée aux éléments interactifs et aux formulaires. Plutôt rustiques avant, les éléments de saisie de la dernière génération se voient dotés de nouveaux types de champs, de nouvelles fonctions, voire de tests d’expressions régulières sur leur contenu textuel. En voici quelques-uns :
+          <ul>
+            <Li>email : le champ requiert un contenu au format d’adresse électronique</Li>
+            <Li>url : le champ accueille des URL</Li>
+            <Li>tel : accueille des numéros de téléphone</Li>
+            <Li>number : champ acceptant uniquement des caractères numériques</Li>
+            <Li>color : champ prévu pour les chaînes représentant une valeur de couleur</Li>
+
+          </ul>
+          La syntaxe est similaire à chacune des valeurs. Voici comment symboliser un champ d’adresse électronique.
+
+        </p>
+
+        <pre class="prettyprint">
+         <xmp>
+          <input type ="email" name ="email">   </xmp>
+        </pre>
+
+
+      </p>
+
+
+      <p>
+        Même si les fonctionnalités de ces éléments demeurent encore assez timides, l’information apportée par le type offre
+        la possibilité d’appliquer des mises en forme spécifiques. Vous pouvez par exemple agrémenter les champs d’adresse
+        électronique avec un pictogramme caractéristique en ciblant le sélecteur d’attribut.
+      </p>
+
+      <pre class="prettyprint">
+       <xmp>
+         [type ="email"] {background:url(email.png) left center no-repeat;}
+       </xmp>
+     </pre>
+
+
+
+   </p>
+   <p>
+    Chacun des types de champ obéit à une norme qui définit les valeurs acceptées ou rejetées. Ainsi, il est possible de
+    vérifier quels éléments sont invalides à l’aide des sélecteurs CSS3 valid: et invalid:
+
+
+    <pre class="prettyprint">
+     <xmp>
+       input[type="email"]:valid{background:green;}
+     </xmp>
+   </pre>
+
+ </p>
+
+ <p>
+  Au cas par cas, certains attributs complémentaires peuvent élargir les fonctionnalités des nouveaux éléments de
+  formulaire. Le type number accepte par exemple les attributs min,max,step et value.
+</p>
+<p>
+  <pre class="prettyprint">
+   <xmp>
+    <input type ="number" min="0" max="10" step ="2" value ="6">
+  </xmp>
+</pre>
+
+
+
+
+
+Cette ligne permet d’indiquer qu’il s’agit d’un champ de type numérique, que la valeur minimale acceptée est 0 et celle
+max est 10. le step à 2 indique qu’à partir de 0 seules les valeurs 0; 2; 4; 6; 8; 10 sont acceptées. La valeur par défaut
+est 6.
+</p>
+
+
+<p>
+
+
+ <pre class="prettyprint">
+   <xmp>
+    <input type ="search" results ="10" name ="recherche" placeholder ="rechercher" autofocus autocomplete ="off">
+  </xmp>
+</pre>
+
+
+
+date : Type permettant d’afficher un contrôle de date
+</p>
+
+
+<p>
+ <pre class="prettyprint">
+   <xmp>
+    <input type ="search" results ="10" name ="recherche" placeholder ="rechercher" autofocus autocomplete ="off">
+  </xmp>
+</pre>
+
+
+
+Cette ligne permet de générer une zone de champ de recherche avec un texte par défaut, le curseur placé à
+l’intérieur de la zone et l’interdiction de l’autocomplétion.
+</p>
+
+<p>
+ <pre class="prettyprint">
+   <xmp>
+    <form >
+      <input name ="name" type ="text" placeholder ="champs requis" required >
+      <input type ="submit" value ="GO">
+    </form >
+  </xmp>
+</pre>
+
+
+
+<pre class="prettyprint">
+ <xmp>
+  [required]{border:1px solid orange;} 
+</xmp>
+</pre>
+
+
+
+Les champs bénéficiant de cet attribut doivent nécessairement être remplis lors de la soumission du
+formulaire, sans quoi la validation est refusée
+</p>
+
+<h3>Question 1</h3>
+<p>Regardez la vidéo ci-dessous et créer le formulaire permettant de reproduire le même comportement. Le bord de couleur rouge indique que le contenu n'est pas valide. Le mot (required) doit s'ajouter automatiquement via le css (regardez la doc de <a href="https://developer.mozilla.org/fr/docs/Web/CSS/::after">:after</a>)</p>
+<p><video width="100%" height="280" controls="">
+  <source src="img/formulaire.m4v" type="video/mp4">  
+    Your browser does not support the video tag.
+  </video> </p>
+
+
+  <h3>Question 2</h3>
+  <p>
+    Votre formulaire fonctionne, mais est-il de qualité ? Et plus précisément respecte-t-il la norme RGAA ? Lisez <a href="https://disic.github.io/guide-integrateur/6-formulaires.html">cette page</a>.
+  </p>
+  <p>
+    A minima, ajoutez un attribut title au bouton et, au bon endroit, des balises labels permettant de relier chaque mot du formulaire (nom, URL, ...)
+  </p>
+  <p>
+    Mais comment choisir les bons labels ? Vous pouvez vous inspirer des microdata. Ce sont des schémas permettant d'utiliser des labels parmi une liste prédéfinie (plusieurs thèmes possibles : cinéma, personnes, ).
+    Lisez cet <a href="https://schema.org/docs/gs.html">article intéressant</a>. Dès lors que vous utilisez des labels dans un formulaire, mais surtout quand vous écrivez des données (dont le schéma a été défini) dans une page, il faut utiliser les microdata.
+  </p>
+
+  <h3>Question 3</h3>
+  <p>
+    La navigation est un autre aspect de la qualité d'un site web. Généralement votre formulaire est nativement navigable au clavier. PAr contre il faut faire attention que l'ensemble du site suive un ordre logique lors des appuis successifs de la touche "tabulation".
+    Lisez rapidement <a href="http://www.infowebmaster.fr/128,news-accessibilite-web-navigation-clavier.html">cet article</a> et <a href="https://www.accede-web.com/notices/html-css-javascript/12-navigation-clavier/12-2-liens-evitement/">celui-là</a>. Ils vous donnera des informations sur les bases de la navigation au clavier. Pensez à faire attention à la navigation au clavier dans votre projet web.</a>
+  </p>
+
+
+  <h2 id="exo3" class="w3-xxlarge">Mise en forme d'un texte</h2>
+  <hr style="width:50px;border:5px solid red" class="w3-round">
+
+
+  <h3>Gérer les dépassements/césures</h3>
+
+
+  <p>
+    Dans un texte de contenu, lorsqu’un mot sans espace ni trait d’union est plus large que la dimension définie pour son
+    parent, le comportement normal consiste à faire déborder le texte au-delà de la largeur normale du cadre, sans retour
+    à la ligne et sans que la dimension du conteneur ne soit affectée. Il est toutefois possible de forcer la césure d’un mot
+    long à l’aide de la propriété CSS word-wrap appliquée au parent et qui aura pour effet de couper le mot à un endroit
+    arbitraire afin de provoquer un retour à la ligne.
+  </p>
+
+
+
+  <h3>Question 4</h3>
+  <p>
+    <a href="code/q4.html" target="_blank">Téléchargez le code suivant.</a> <br>Jouez avec les différentes options de word-wrap et observez les résultats.
+
+
+  </p>
+
+  <p> <img width="600px" src="img/q4.png"></p>
+<!-- 
+  <iframe style="width:100%;height:500px; "src="http://dabblet.com/gist/51691d29fe526412cfe616e2d9de6f68"></iframe> -->
+
+
+
+  <p>  
+    Dans certains contextes particuliers, pour ne pas dénaturer la mise en page d’un document, nous sommes amenés
+    à masquer les contenus d’un élément dimensionnés à l’aide de la règle overflow (hidden, scroll, ou auto). Les
+    contenus qui débordent de ce bloc sont alors rognés et invisibles. Il peut être utile de laisser un indice visuel pour
+    indiquer la présence de ce contenu masqué. C’est là qu’intervient la propriété text-overflow : associée à la valeur
+    ellipsis, des points de suspension son ajoutés à l’endroit où le terme est rogné.
+    Si vous modifiez le css de l’exemple précédent de la manière suivante, vous observerez l’apparition de points de
+    suspension.
+
+  </p>
+
+  <h3>Question 5</h3>
+  <p>
+    Reprenez l'exemple précédent et testez les différentes options de text-overflow
+  </p>
+
+
+
+  <p>  
+    La fonction resize est une propriété qui offre l’opportunité à l’utilisateur de redimensionner un bloc à l’aide d’un simple glisser-déposer de la
+    souris. Son application est particulièrement salutaire au sein des éléments de textes libres d’un formulaire (balise textarea),
+    que le visiteur peut agrandir à loisir afin de disposer de suffisamment d’espace pour insérer son contenu sans être
+    gêné.
+
+  </p>
+
+  <h3>Question 6</h3>
+  <p>
+    Reprenez l'exemple précédent et testez les différentes options de resize.
+  </p>
+
+
+
+
+  <h3>Mettre en page correctement des blocs de texte</h3>
+
+  <p>CSS3 offre la possibilité de présenter un texte sur plusieurs colonnes, à l’instar des journaux papier, via column et ses
+    propriétés dérivées. Ces différentes propriétés peuvent être scindées en trois parties fonctionnelles :
+    <ul>
+      <li> nombre et taille des colonnes : 
+        <ul>
+          <li> <span class="code">columns</span> : nombre de colonnes et éventuellement la largeur de chaque colonne</li>
+          <li> <span class="code">column-min-width</span> : largeur minimale de chaque colonne</li>
+          <li> <span class="code">column-width-policy</span> : mode d’affichage des colonnes (flexible, strict ou inherith)</li>
+        </ul></li> 
+        <li> ce qu’il y a entre les colonnes :  
+          <ul>
+            <li> <span class="code">column-gap</span> : distance entre chaque colonne</li>
+            <li> <span class="code">column-rule</span> : couleur, style et largeur de la séparation entre colonnes</li>
+            <li> Enfin une propriété <span class="code">column-span</span> pour étendre un élément sur plusieurs colonnes </li> 
+          </ul>
+        </li>
+        La plupart de ces propriétés sont encore à l’état de chantier. Du coup, il faut les faire précéder des habituels préfixes.
+        Vous pouvez essayer de créer un <p> dans un fichier html et et de lui appliquer le style suivant :
+        </p>
+        <h3>Question 7</h3>
+
+        <p>
+          Créez un code (en jouant sur les attributs column-gap, columns et column-rule) afin qu'il donne le même visuel que l'image.
+        </p>
+        <p>
+          <img src="img/columns.png">
+        </p>
+
+<!-- 
+
+<iframe style="width:100%;height:500px; "src="http://dabblet.com/gist/dddb48096df7712081df6666b0d73f23"></iframe>
+-->
+
+<h3>Question 8</h3>
+
+<p>
+  Créez un code HTML/CSS afin qu'il donne le même visuel que l'image.
+</p>
+<p>
+  <img width="700px" src="img/article.png">
+</p>
+<!-- <iframe style="width:100%;height:500px; "src="http://dabblet.com/gist/0a0681d359c6fea54a497e37f254876f"></iframe> -->
+
+
+<h3>Textes suivant des formes complexes</h3>
+
+<p>
+  Vraiment parce que cette propriété est peu connue alors qu’elle permet de faire des choses superbes comme sur cette vidéo : 
+  <br>
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/VON2shFlsKU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+  <br>
+  Voyons comment fonctionne le shape en CSS.
+  Cette propriété CSS permet d appliquer un contenu (texte) autour d’une forme géométrique entièrement paramétrable.
+  Il est possible de créer une forme prédéterminée avec la propriété shape-outside: circle(50%), ou d’utiliser la
+  fonction polygon pour déterminer les zones où s’appliquera le texte.
+
+</p>
+
+
+
+
+
+<p>
+  Regardez l'exemple ci-dessous et jouez un peu avec les différents paramètres.
+</p>
+<iframe style="width:100%;height:500px; "src="code/q8-3.html"></iframe> 
+
+<p>
+  Avec un peu de patience (et en utilisant de bons outils comme Gimp ou <a href="http://bennettfeely.com/clippy/">http://bennettfeely.com/clippy/</a>) il est
+  possible de mettre en page votre texte en délimitant vous même les zones de texte ou en indiquant une image masque.
+</p>
+
+<h3>Attributs personnalisés</h3>
+
+<p>
+  N’avez-vous jamais été tenté d’employer un attribut créé de toutes pièces, non référencé dans les spécifications? HTML5 autorise la mise en œuvre de tels attributs personnalisés sous certaines conditions :
+  <ul> 
+    <li>Le nom de l’attribut doit ê̂tre composé d’au moins un caractère et être préfixé de la chaîne data- afin d’être valide </li>
+    <li>Il ne doit pas contenir de caractères en majuscules</li>
+    <li>La valeur de l’attribut personnalisé peut ê̂tre n’importe quelle chaîne de caractères</li>
+    <li>L’une des nombreuses application de ces attributs paramétrables pourrait être l’affichage d’infobulles personnalisées.</li>
+  </ul>
+</p>
+
+<h4>Question 9</h4>
+
+<p>Créez une balise <span class="code">span</span> dans votre fichier HTML, et donnez lui un nom d'attribut personnalisé.
+
+  <pre class="prettyprint">
+   <xmp>
+    <span data-tooltip ="ceci est une infobulle"> survolez moi! </span>
+  </xmp>
+</pre>
+
+
+Complétez le css afin que le texte de l’attribut déclaré dans le <span class="code">span</span> s’affiche au survol de la souris comme sur l’image ci-dessous.
+
+<img style="border:1px solid black" src="img/bulle.png">
+
+</p>
+
+
+
+<h3>Un  peu de CSS avancé</h3>
+
+
+<h4>Sélecteur d'attribut</h4>
+
+
+<p>
+  CSS2 permet déjà de désigner un élément en ciblant son attribut (<span class="code">[attribut]</span>} ou la valeur de son attribut (<span class="code">[attribut="valeur"]</span>).
+</p>
+
+<p>
+  CSS3 permet 3 nouvelles variantes de sélecteurs d'attributs : 
+</p>
+
+
+<ul>
+  <li><span class="code">[attribut="clafoutis"]</span> caractérise un attribut dont la valeur commence par la chaîne "clafoutis"</li>
+  <li><span class="code">[attribut\$="clafoutis"]</span> représente un attribut dont la valeur finit exactement par le suffixe "clafoutis</li>
+  <li><span class="code">[attribut*="clafoutis"]</span> désigne un attribut dont la valeur contient au moins une fois la sous-chaine "clafoutis"</li>
+</ul>
+
+
+<p>Cette méthode de sélection est particulièrement attrayante dans la mesure où l'on rencontre fréquemment des cas de figure où les éléments ne se distinguent que par leur attributs : les champs de soumission d'un formulaire ou encore les liens hypertextes menant vers une adresse sécurisée. En voici un exemple permettant de cibler les liens vers une adresse électronique:
+</p>
+
+
+<pre class="prettyprint">
+ <xmp>
+  a[href^="mailto"]{
+  background-image : url(e-mail.gif) left center no-repeat;
+  padding-left : 25px;
+}
+
+</xmp>
+</pre>
+
+
+<p>
+  Cet exercice vise à concrétiser cette partie consacrée aux sélecteurs CSS3 dans le cadre d'une application du quotidien : agrémenter les liens hypertextes voués au téléchargement de fichiers pdf. Pour chaque lien (dans le fichier html) on ajoutera automatiquement un icône et une information sur la taille du fichier à l'aide des sélecteurs CSS3  (cf image du résultat final).
+</p>
+
+
+<img src="img/selecteur.png">
+
+
+
+<p>
+  Complétez le html suivant afin d'afficher 3 liens vers des fichiers pdf.
+</p>
+
+<pre class="prettyprint">
+ <xmp>
+
+  <a href="document.pdf" title="Fichier 1 pdf 132Ko">Plan d'acces</a>
+  <a href="document2.pdf" title="Fichier 2 pdf 232Ko">Emploi du temps</a>
+  <a href="document3.pdf" title="Fichier 3 pdf 832Ko">Fichier absence</a>
+  <a href="document4.txt" title="readme.txt 20ko"> fichier texte </a>
+</xmp>
+</pre>
+
+
+<p>Pour résoudre cet exercice, il vous faudra sélectionner tous les liens de type pdf, puis utiliser les propriétés css3 <span class="code"><a href="https://developer.mozilla.org/fr/docs/Web/CSS/::after">after</a></span> et <span class="code"><a href="https://developer.mozilla.org/fr/docs/Web/CSS/::after">content</span></a></p>
+
+<p>Une solution est disponible <a href="files/q8.html">ici</a></p>
+
+
+
+<h4>Savoir créer un tableau de manière optimisée</h4>
+
+
+
+<p>L'objectif de cet exercice est de styler un tableau de données en évitant tout élément superflu (classe, id, attribut) dans le code HTML. La vidéo ci-dessous illustre le résultat attendu.
+</p>
+
+<video width="500" height="240" controls>
+  <source src="img/tableau.m4v" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+
+  <p>Recopiez le code ci-dessous permettant de créer un tableau. Observez trois choses : 
+
+    <ul>
+      <li>la balise (très classique) <span class="code">th</span> indiquant l'entête (début colonne ou ligne) qui a pour effet de mettre en gras et centrer ce texte.</li>
+      <li><span class="code">scope</span> n'ayant pas d'influence sur le rendu visuel, mais permet d'ajouter de la sémantique pour l'aide à la lecture du tableau (certains lecteurs l'interprètent). Il permet de préciser si l'en-tête de cellule (<span class="code">th</span>) doit être associé à sa ligne ou à sa colonne.</li>
+      <li>L'utilisation de la balise <span class="code">caption</span> </li>
+    </ul>
+
+
+  </p>
+
+  <pre class="prettyprint">
+   <xmp>
+
+    <table summary="Le prix des fruits sur le marche">
+      <caption>
+        Prix des fruits
+      </caption>
+      <tr>
+        <td></td>
+        <th scope="col"> Origine </th>
+        <th scope="col"> Prix (en euros)</th>
+      </tr>
+      <tr>
+        <th scope="row"> Kiwi</th>
+        <td> France </td>
+        <td>42</td>
+      </tr>
+      <tr>
+        <th scope="row"> Pasteque</th>
+        <td> Taiwan </td>
+        <td>1137</td>
+      </tr>
+      <tr>
+        <th scope="row"> Papaye</th>
+        <td> Roumanie </td>
+        <td>1.3</td>
+      </tr>
+      <tr>
+        <th scope="row"> Melon</th>
+        <td> France </td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <th scope="row"> Litchi</th>
+        <td> Groenland </td>
+        <td>15.50</td>
+      </tr>
+    </table>
+  </xmp>
+</pre>
+
+<p>
+  Dans cet exercice la fonte utilisée, les couleurs et les marge exactes ne m'intéressent pas (essayez juste de faire quelque chose d’harmonieux). Ce que je veux ici c'est que vous utilisiez les sélecteurs css  ou attributs suivants : 
+
+  <ul>
+    <li><span class="code">:last-child</span></li>
+    <li><span class="code">nth-child(odd)</span></li>
+    <li><span class="code">nth-child(even)</span></li>
+    <li><span class="code">:empty</span></li>
+    <li><span class="code">border-collapse: separate;</span> pour fusionner les bordures (sinon c'est pas joli )</li>
+  </ul>
+</p>
+
+
+<p>Une solution est disponible <a href="files/q10.html">ici</a></p>
+
+
+
+
+<h4>Un peu de responsive réalisé manuellement</h4>
+
+<p>
+  Comme nous l'avons vu en cours, CSS3 améliore la gestion des styles en fonction des périphériques de sortie et de leurs particularités en introduisant la notion de requête média. il devient alors possible de limiter la portée du feuille de style CSS selon un environnement maîtrisé, par exemple uniquement les écrans dont la résolution est inférieure à 800 pixels.
+
+  La requête s'effectue au sein du classique élément <span class="code">link</span>.
+</p>
+<pre class="prettyprint">
+ <xmp>
+  <link rel="stylesheet" media="screen and (width:800px)" href="colors.css"/>
+</xmp>
+</pre>
+
+<p>Elle peut également prendre place dans une règle @</p>
+
+<pre class="prettyprint">
+ <xmp>
+
+  @media screen and (width:800px){...}
+</xmp>
+</pre>
+
+<p>Divers opérateur logiques combinent les requêtes  : and , only et not. L'opérateur ou n'existe pas (utiliser la virgule).
+
+  Voici la liste des critères requêtes généralement définis au sein d'une requête de média. Ajoutons à ces requêtes deux préfixes facultatifs min et max faisant office de "plus petit ou égal à" ou "plus grand ou égal à".
+
+  <ul></ul>
+  <li><span class="code">color</span> : Sans valeur associée, cette requête filtre les périphériques en couleur. Associée à une valeur, elle indique le nombre de bits de couleurs du périphérique. </li>
+
+  <pre class="prettyprint">
+   <xmp>
+    (min-color: 4)
+  </xmp>
+</pre>
+
+<li><span class="code">width</span> et <span class="code">height</span> : largeur / hauteur de l'écran (surface rendue donc la fenêtre).</li>
+
+<pre class="prettyprint">
+ <xmp>
+  (min-width: 800px)
+</xmp>
+</pre>
+<li><span class="code">device-width</span> et <span class="code">device-height</span> : largeur physique de l'écran (en pixels)</li>
+
+
+<pre class="prettyprint">
+ <xmp>
+  (max-device-width: 800px)
+</xmp>
+</pre>
+
+
+
+<li>Choisit un périphérique tourné dans le sens vertical (<span class="code">portrait</span>) ou horizontal (<span class="code">lanscape</span></li>
+
+
+<li> <span class="code">aspect-ratio</span> : Format de l'image du périphérique de sortie </li>
+
+
+<pre class="prettyprint">
+ <xmp>
+  (aspect ratio: 16/9)
+</xmp>
+</pre>
+
+
+
+
+<li><span class="code">resolution</span> : Résolution de périphérique de sortie</li>
+
+
+<pre class="prettyprint">
+ <xmp>
+  @media print and (min-resolution: 320 dpi)
+</xmp>
+</pre>
+
+
+
+<li><span class="code">device-pixel-ratio</span> : densité de pixel du périphérique de sortie.</li>
+
+
+<pre class="prettyprint">
+ <xmp>
+
+  (min-device-pixel-ratio: 2)
+  /*designe un terminal dont la densite de pixels est au moins egale a 2, comme l'iphone 4*/
+</xmp>
+</pre>
+
+</p>
+
+<p>Mettons en pratique les bienfaits des Media Queries au sein d'un exercice consistant à adapter une mise en page à la largeur de l'écran. L'objectif à atteindre est de varier d'un affichage en trois colonnes à un affichage sur une colonne si l'écran est réduit ou si le visiteur navigue à l'aide d'un téléphone mobile.
+</p>
+
+
+<p>Créez un fichier html dans lequel : le body sera constitué d'une seule div, l'id de la div sera "main", la div sera composée de 3 paragraphes (avec 3 textes). Ecrivez les bons <span>@media</span> permettant d’obtenir le résultat de la vidéo ci-dessous.
+</p>
+
+
+<video width="1000" height="480" controls>
+  <source src="img/media.m4v" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+
+  <h3>CSS transformations et CSS transition</h3>
+
+
+  <p>
+
+    La propriété CSS3 <span class="code">transform</span> permet d'appliquer des transformations en deux dimensions sur un élément : rotation, zoom, déformation et perspective.
+  </p>
+
+  <h4><span class="code">scale</span> : fonction de zoom</h4>
+
+  <p>
+    Cette fonction agrandit ou réduit les dimensions d'un élément selon un ration (&lt; 1 diminue la taille, &gt;1 l'agrandit). La place occupée dans le flux demeure identique (si l'élément est agrandit, ses frères ne seront pas poussés en conséquence). Selon les navigateurs (et la date où vous lisez ces lignes) il est possible que vous deviez utiliser les préfixes classiques afin que la transformation soit interprétable sur la majorité de navigateurs.
+  </p>
+
+
+  <pre class="prettyprint">
+    <xmp>
+      transform: scale(0.5); //réduire de moitié l'élément
+    </xmp>
+  </pre>
+
+
+
+
+  <h4><span class="code">rotate</span> : rotation</h4>
+  <p>
+    Le concept de rotation via la fonction <span class="code">rotate</span> dont les valeurs sont exprimées en degrés (<span class="code">deg</span>) ou radians (<span class="code">rad</span>). 
+
+    Ainsi, pour tourner les éléments de 45 degrés dans le sens des aiguilles d'une montre, nous décrirons : 
+
+    <pre class="prettyprint">
+      <xmp>
+        transform : rotate(45deg);
+      </xmp>
+    </pre>
+  </p>
+
+  <h4><span class="code">skew</span>, <span class="code">translate</span> : modifier les perspectives, translation</h4>
+
+  <p>
+    Le panel des effets de transformation couverts par les spécifications de CSS3 ne se limite pas aux rotations et aux grossissements. Des déformations de toutes sortes et des translations sont également possibles.
+  </p>
+  <p><span class="code">skew</span>, modifie la perspective de l'élément en tirant sur ces coins de manière à obtenir au final une forme parallélépipédique. La première valeur concerne l'axe X, la seconde l'axe Y.
+  </p>
+  <pre class="prettyprint">
+    <xmp>
+      transform : skew(-25deg, 10deg);
+    </xmp>
+  </pre>
+
+
+
+  <p><span class="code">translate</span> opère une translation de l'élément sur les axes Y et X.
+  </p>
+
+  <pre class="prettyprint">
+    <xmp>
+      transform : translate(100px,100px);
+    </xmp>
+  </pre>
+
+</p>
+
+
+<h4>CSS transitions</h4>
+
+<p>Il est possible de réaliser des transitions (basiques) et donc d'animer le contenu d'une page web.
+
+  Pour définir une nouvelle transition animée, il est nécessaire de préciser au minimum deux coposantes : 
+
+
+  <ul>
+    <li>la (ou les) propriété(s) à animer (<span class="code">transition-property</span>)</li>
+    <li>la durée de l'animation (<span class="code">transition-duration</span>)</li>
+  </ul>
+
+</p>
+
+<p>
+  Les deux propriétés minimales nécessaires pour rendre fonctionnelle une transition en CSS3 sont ces deux dernières. Il existe cependant d'autres propriétés CSS spécifiques aux transitions : <span class="code">transition-timing-function</span>, <span class="code">transition-delay</span> et la notation raccourcie <span class="code">transition</span> qui cumule tous ces aspects.
+</p>
+
+
+
+
+<p>
+  La propriété <span class="code">transition-property</span> accepte 3 valeurs : <span class="code">all</span> (valeur par défaut) : toutes le propriétés possibles seront animées), <span class="code">propriete</span> le nom d'une propriété pouvant être animée, <span class="code">none</span> : aucune propriété ne sera animée.
+</p>
+
+
+<p>
+  La propriété <span class="code">transition-timing-function</span> détermine la fluidité de l'animation. Les mots-clefs sont : <span class="code">ease</span> : rapide sur le début et ralenti sur la fin, <span class="code">linear</span> (valeur par défaut) : vitesse constante sur toute la durée de l'animation, <span class="code">ease-in</span> : lent sur le début et accélère de plus en plus, <span class="code">ease-out</span> : rapide sur le début et décélère sur la fin, <span class="code">ease-in-out</span> : le départ et la fin sont lents.
+</p>
+
+<p>
+  La notation raccourcie <span class="code">transition :</span> <span class="code">transition-property></span> <span class="code">transition-duration</span> <span class="code">transition-timing-function</span><span class="code">transition-delay</span>; permet de décrire facilement et de manière concise les différentes propriétés en jeu à l'aide d'une seule propriété. 
+
+
+
+  <pre class="prettyprint">
+    <xmp>
+      /*EXEMPLE*/
+      /*Creer une transition d'une seconde de toutes les propriétés d'une image lors de son survol*/
+      img{
+      transition : all 1s ease-in;
+    } 
+    img:hover{
+    width: 400px;
+    transform : rotate(90deg);
+  }
+</xmp>
+</pre>
+</p>
+
+<p>une bonne <a href="https://www.alsacreations.com/tuto/lire/876-transitions-css3-transition-timing-function.html">référence</a> expliquant tout cela</p>
+
+
+
+
+
+<h3>Exercices (rapides) </h3>
+
+<p>Complétez l'exemple à  <a href="http://plnkr.co/edit/eYY68lXJRfJO8V6uu7Pv?p=preview">l'adresse suivante</a> afin qu'il donne un rendu proche de celui ci-dessous. </p>
+
+
+<video width="500" height="240" controls>
+  <source src="img/transition.m4v" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <p>Une solution est disponible <a target="blank" href="files/transition/index.html">ici</a></p>
+
+
+
+
+  <p>Ecrivez l'ensemble d'un code HTML/CSS afin qu'il donne un rendu proche de celui ci-dessous. </p>
+
+
+  <video width="500" height="240" controls>
+    <source src="img/menuSimpson.m4v" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <p>Une solution est disponible <a target="blank" href="files/transition/q16.html">ici</a></p>
+
+
+
+
+
+
+
+
+    <h2 id="exo9" class="w3-xxlarge">La notion de qualité</h2>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+
+    <p>Lors de cette séance de TP vous allez tout d’abord apprendre la méthodologie permettant de réaliser une critique
+      (positive comme négative) d’un site web.
+      Cette analyse se fera selon le modèle VPTCS de la norme OPQUAST. Lors de ce TP nous analyserons principalement
+      les aspects techniques, ergonomiques et enfin les contenus.
+      Nous travaillerons sur le site Hexaconf. Ce site a été réalisé par des étudiants de DAWIN en 2015. La version sur
+      laquelle vous allez travailler n’est pas la version finale d’Hexaconf. Cette version a été modifiée pour le besoins de ce
+      TP.
+
+
+
+    </p>
+
+
+
+
+    <p>
+      Définissons ensemble une liste de points clés à vérifier pour évaluer la qualité d'un site.
+    </p>
+    <button id="bReponse">Afficher les réponses</button>
+
+    <div id="reponseq" style="display: none;">
+
+     <p>
+      Perception du site :
+      <ul>
+        <li>Accès rapide à l’information</li>
+        <li>Lien différenciés du contenu (éviter un click inutile)</li>
+        <li>Emplacement dans l’architecture</li>
+        <li>Nombre d’items limités (menu), menus au même endroit, item cohérent avec la cible (item pour les liens),
+        présence d’un moteur de recherche, retour à l’accueil, et rétroaction (flèche retour)</li>
+        <li>Compatibilité multi-navigateurs</li>
+        <li>Responsive et style impression</li>
+        <li>Formulaire : format, champs obligatoires ou non, guidage après action</li>
+        <li>Norme RGAA</li>
+        <li>Gestion des polices</li>
+        <li>Charte graphique cohérente sur l’ensemble des pages</li>
+        <li>Gestion des mails</li>
+        <li>Utilisation des réseaux sociaux</li>
+      </ul>
+    </p>
+
+    <p>
+      Contenu du site :
+
+      <ul>
+        <Li>Mentions légales</Li>
+        <Li>Contacts</Li>
+        <Li>Auteur/date</Li>
+        <Li>Politique de vie privée (données, cookies, ...)</Li>
+        <Li>Qualité du texte rédigé</Li>
+      </ul>
+    </p>
+
+    <p> 
+      Qualité du code source
+      <br>
+      <ul>
+        <li>Utilisation du dépôt de sources</li>
+        <li>Images optimisées</li>
+        <li>Compressions des contenus et webperf</li>
+        <li>Architecture du site (au sens boilerplate)</li>
+        <li>Nombre de requêtes</li>
+        <li>Respect des standards W3C</li>
+        <li>Navigation au clavier</li>
+        <li> Utilisation cohérente des balises</li>
+        <li>Utilisation cohérente des sélecteurs (id/classes, nommage des variables, propriétés css logiques)</li>
+        <li>Erreurs personnalisées</li>
+        <li>Erreurs personnalisées</li>
+        <li>Commentaires dans le code, logique du CSS</li>
+        <li>Tests avec utilitaires (opquast, W3C, google speed, ...)</li>
+      </ul>
+    </p>
+
+
+  </div>
+  <h3>Question </h3>
+  Téléchargez le code d'<a href="files/hexaconf.fr.zip">hexaconf.fr.zip</a> et analysez le en appliquant la méthodologie vue précédemment
+</p>
+
+
+
+
+
+<h2 id="exo10" class="w3-xxlarge">Prise en main d'un CMS</h2>
+<hr style="width:50px;border:5px solid red" class="w3-round">
+
+<p>
+  <img src="img/joomla.png">
+</p>
+
+<p>Comme le définit <a href="https://www.journaldunet.fr/web-tech/dictionnaire-du-webmastering/1203349-cms-content-management-system-definition-traduction-et-acteurs/">le journal du net</a>, un CMS est un système de gestion de contenu qui permet de concevoir, gérer et mettre à jour des sites Web ou des applications mobiles de manière dynamique.  
+  <br>
+  Pour pouvoir être définis comme CMS, les logiciels doivent pouvoir :
+
+  <ul>
+    <li>être utilisés simultanément par plusieurs individus </li>
+    <li>proposer une chaîne de publication de contenu</li>
+    <li>permettre de gérer séparément la forme et le contenu </li>
+  </ul>
+
+
+Les CMS autorisent également la structuration du contenu d'un site Web (catégories, pages, articles) et la hiérarchisation des utilisateurs du site, en leur attribuant un titre précis et/ou des autorisations particulières (administrateur, contributeur, etc.). </p>
+
+<p>
+ Cette partie se fait en interaction avec l'enseignant. Nous allons utiliser joomla. Téléchargez <a href="https://www.joomla.fr/joomla/telecharger-joomla">joomla</a> et un serveur web local comme <a href="https://www.mamp.info/en/mamp/">mamp</a> (vous pouvez aussi installer votre propre serveur sur votre Linux).
+</p>
+<p>
+  Ce que vous devez avoir retenu de ces interactions :
+
+  <ul>
+    <Li>Comment installer un CMS  et aller voir les fichiers générés, l'architecture, la base</Li>
+    <Li>
+      Être capable de vous repérer dans un backOffice : paramètres système, gestion utilisateur, ajout de menu, ajout de contenus (articles et catégories et média), notion de composants natifs, d'extensions et de template.</li>
+    </Li>
+    <Li>Menus de base : Système, user, menu, contenus (articles et catégories et média)</Li>
+    <Li>Composant natifs (ensemble des fonctionnalités) : formulaire de contact, messagerie privée, rechercher dans les modules, …). Observer comment en ajouter via extension.</Li>
+    <Li>Template (gabarit) et style (instance de template) ou l'on peut faire des modifications </Li>
+    <Li>Ecriture d'un article : catégories, écriture de contenu + méta données + droits + aller dans système/article/blog en vedette pour changer la mise en page de la page d’accueil </Li>
+    <Li>Publier un article utiliser l'article créé (dans une catégorie) et faire le lien entre le menu et les articles d’une catégorie</Li>
+    <Li>Installer des d’extension installer manuellement . Par exemple : <a href="http://www.joomla24.com/remository/finishdown/7065.html">http://www.joomla24.com/remository/finishdown/7065.html</a></Li>
+   <li>Installer un module depuis le backoffice : par exemple video gallery lite puis l’activer dans les extensions </a></li>
+   <li>Ajout d'un composant : <a href="https://www.nosyweb.fr/creer-mon-site-internet-joomla-tuto-video/joomla-3-creer-un-formulaire-de-contact.html">une fiche contact </a>, la gestion de <a href="https://docs.joomla.org/J3.x:Google_ReCaptcha/fr">captcha</a> ou un <a href="">slider</a> slider pour mise en forme https://extensions.joomla.org/category/photos-a-images/slideshow/ </li> 
+   <li>Modification du css pour modifier le template</li>
+  </ul>
+  
+
+  
+  
+</p>
+
+
+
+<h2 id="exo11" class="w3-xxlarge">Outils</h2>
+<hr style="width:50px;border:5px solid red" class="w3-round">
+
+<p>Cette section se fait en interactions avec l'enseignant. Pensez à prendre des notes.</p>
+
+<h3>Gestionnaire de version </h3>
+
+<p>Ce que vous devez avoir retenu : 
+<ul>
+  <li>Savoir installer/configurer mercurial</li>
+  <li>Savoir vous repérer sur <a href="https://bitbucket.org/">bitbucket </a></li>
+  <li>Les commandes de base par cœur : clone, add, commit, push, pull, merge, resolve</li>  
+  <li>Avoir testé un merge avec et sans conflits</li>
+  <li>Les bonnes pratiques : readMe, commentaires, ... </li>
+  <li>Un <a href="https://www.mercurial-scm.org/wiki/FrenchTutorial"> bon tutoriel </a> sur mercurial</li>
+</ul>
+</p>
+
+<p>ATTENTION : Vous  progresserez UNIQUEMENT si vous utilisez fréquemment un outil de versioning.   </p>
+
+<p>Fichier de configuration de <span class="code">~/.hgrc</span></p>
+<pre class="prettyprint">
+[ui]
+username = votreUserName &lt;votreadreesse@iut.lerest.fr&gt; 
+editor = nano
+merge=internal:merge
+</pre>
+<h3>Manipuler un IDE </h3>
+
+<p>Il existe un grand nombre d'IDE. Pour ce cours je vous conseille <a href="https://ide.atom.io/">Atom</a>, <a href="https://www.sublimetext.com/3">Sublime Text</a> ou <a href="https://code.visualstudio.com/">Visual Studio</a></p>
+<p>Ce que vous devez avoir retenu : 
+<ul>
+  <li>Savoir naviguer au clavier</li>
+  <li>Savoir utiliser les snippet existants et savoir en créer </li>
+  <li>Savoir sélectionner/installer/utiliser de modules</li>
+</ul>
+</p>
+
+
+<h3>Boiler plate </h3>
+
+
+<p>
+  HTML5 Boilerplate est un template (HTML + CSS + JS + fichiers de configuration). Il se présente sous la forme d’une architecture permettant d’appliquer les bonnes pratiques du moment et d’optimiser votre site en termes de performances Google, de compatibilité́ inter-navigateurs, de JavaScript (dernières version de JQuery et Modernizer), de normalisation css, d’utiliser Qunit ...
+Le boilerplate se présente sous la forme d’une archive téléchargeable ici : http://html5boilerplate.com/ Cette archive est prête à l’emploi. Elle est composée de répertoires permettant de débuter PROPREMENT un projet web front-end "classique" (mais pas uniquement).
+</p>
+<p>Regardons ensemble le contenu de cette archive  :</p>
+<img width="300px" src="img/boiler.png">
+<h3>Divers</h3>
+
+<a href="https://gulpjs.com/">Gulp</a>, <a href="http://lesscss.org/">Less</a>, <a href="https://www.docker.com/">docker</a>, ... 
+
+<h3>Audit </h3>
+<p>Il faut que vous sachiez utiliser l'outil "Audit" de Google Chrome.</p>
+<p><img width="500px" src="img/audit.png"></p>
+
+
+<h2 id="exo12" class="w3-xxlarge">Projet</h2>
+<hr style="width:50px;border:5px solid red" class="w3-round">
+
+<ul>
+  <li>Un one page</li>
+  <li>Un menu toujours présent sur la page</li>
+  <li> Du contenu : 
+    <ol>
+      <li>Compétences</li>
+      <li>Diplômes</li>
+      <li>Une mini présentation de vous (texte)</li>
+      <li>Mise en avant d'un ou deux projets déjà réalisés</li>
+      <li>Votre photo</li>
+    </ol>
+  <li>Un formulaire pour vous contacter</li>
+  <li>Au minimum une animation graphique (type transition)</li>
+  <li>Mise en ligne (utiliser ce <a href="https://pages.github.com/">tutoriel github</a>)</li>
+  <li>Responsive obligatoire</li>
+  <li>Qualité du code à tester (Au minimum Audit et W3C)</li>
+  <li>Un lien vers votre dépôt (contenant ce code)</li>
+  <li>Liens vers réseaux sociaux</li>
+
+</ul>
+
+<p>
+ATTENTIOn : tout doit être fait par vous même. Vous pouvez vous inspirer de sites existants, mais en aucun cas recopier du code. A partir du moment où vous copier/coller c'est un plagiat.
+<br>
+Voici quelques CV intéressants :
+<ul>
+   
+   
+   <li><a href="https://codepen.io/mavrK/pen/PzGvdJ">ce que je ne veux pas</a></li>
+   <li><a href="https://draco.afnizarnur.com/">Le minimum du minimum</a></li>
+   <Li><a href="https://uicookies.com/demo/theme/myprofile/">assez proche de ce que j'attends</a> (merci de ne pas copier/coller le code)</Li>
+   <li><a href="https://medium.freecodecamp.org/learn-bootstrap-4-in-30-minute-by-building-a-landing-page-website-guide-for-beginners-f64e03833f33">assez proche de ce que j'attends</a> (merci de ne pas copier/coller le code)</li>
+   <Li><a href="https://colorlib.com/preview/#steve">Le niveau au dessus</a></Li>
+   <li><a href="http://www.rleonardi.com/interactive-resume/"> le niveau ultime </a> <span style="font-size:20px">&#128540;</span></li>
+   <!-- <Li> <a href="http://lareinemerlin.org/wp-content/uploads/2018/10/cv/Tallulah-Gilliard.html">Une approche originaleSite d'une ancienne étudiants en Année spéciale</a>  </Li> -->
+   
+ </ul> 
+</p>
+
+
+
+
+
+<!-- 
+
+    <iframe width="100%" height="700px" src="http://plnkr.co/edit/MZKC2XVSURnDGJmHNaqZ"></iframe>
+    <pre class="prettyprint">
+        <xmp>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        </xmp>
+    </pre>
+<video width="500" height="240" controls>
+    <source src="img/exo-interaction.m4v" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+  -->
+
+
+</div>
+
+</div> 
+
+
+<script type="text/javascript">
+ function sw(){
+
+     //window.open("temp.html","reponse","width=300,menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes");
+
+     $('<iframe>', {
+       src: 'files/sw.html',
+       id:  'myFrame',
+       width: '1200px',
+       height: '800px',
+       frameborder: 0,
+       scrolling: 'no'
+     }).fadeIn(800).appendTo('#reponse');
+   }
+ </script>
+
+ <script>
+
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML =  element.alt;
+}
+
+
+
+
+
+</script>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    var val=Math.floor((Math.random()*3));
+    var tab=["https://codepen.io/theosirian/pen/bQbbZB?page=6","https://codepen.io/Raybe/pen/mzXwmo?page=7","https://codepen.io/szudi/pen/eoRKYg?&page=1"];
+    var code="<p> <a target=\"blank\" href=" + "\" " + tab[val] + "\">Code source à analyser</a></p>" 
+    $("#code").html(code);
+
+
+
+    $("#bReponse").click(function() {
+      $("#reponseq").css("display","block");
+    });
+  });
+  
+</script>
+</body>
+</html>
