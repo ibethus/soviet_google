@@ -1,0 +1,5 @@
+total 4
+-r-xr-xr-x 1 ivan_bethus ivan_bethus 50 oct.   7 16:56 hello.sh
+-rw-r--r-- 1 ivan_bethus ivan_bethus  0 oct.   7 17:07 test.txt
+
+coucou

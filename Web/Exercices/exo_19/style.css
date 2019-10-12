@@ -1,0 +1,34 @@
+#menu>ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+}
+#menu>ul>li{
+  display:inline;
+  float:left;
+}
+/* Change les propriétés des liens, comme leur couleur et leur taille. On les affiche également en bloc plutôt qu'en texte, comme ça tout le background est cliquable par l'utilisateur. */
+a{
+  color: white;
+  display: block;
+  background-color: rgba(0, 200, 100);
+  padding: 8px;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+}
+/* Change la couleur de l'arrière-plan des liens lorsque la souris passe dessus */
+a:hover{
+  background-color: rgba(0, 100, 100);
+}
+/*Gère l'affichage des éléments du menu déroulant */
+.dropdown-content{
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 200, 100);
+}
+/* Gère l'affichage du sous-niveau lorsque la souris passe sur le nom du menu parent*/
+.dropbtn:hover + .dropdown-content, .dropdown-content:hover{
+  display: block;
+}

@@ -1,0 +1,54 @@
+.exo1{
+  border: 1px solid green;
+}
+.exo1>p{
+  float:right;
+  background:black;
+  color:white;
+  margin:0px;
+}
+.exo1>p+p{
+  background: violet;
+  margin-bottom:20px;
+}
+.exo2{
+  clear:both;
+  border: 1px solid green;
+}
+.exo2>p{
+  background:yellow;
+}
+.exo2>p+p{
+  background:red;
+  float:right;
+}
+.exo2>p+p+p{
+  background:violet;
+  float:none;
+  clear:both;
+  color:white;
+}
+div{
+  margin:0px;
+}
+.exo3>.titre1{
+  background:blue;
+  float:left;
+}
+.exo3>.titre2{
+  background:grey;
+  float:left;
+  width:300px;
+}
+.exo3>.titre3{
+  background:pink;
+  float:right;
+  width:300px;
+}
+.exo3>.titre4{
+  background:red;
+}
+.exo3>.titre5{
+  background:green;
+  clear:both;
+}

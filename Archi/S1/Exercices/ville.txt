@@ -1,0 +1,6 @@
+france:paris
+vietnam:ho chi minh
+italie:roma
+france:bordeaux
+vietnam:hanoi
+inde:delhi
