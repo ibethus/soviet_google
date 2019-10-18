@@ -2,17 +2,26 @@ package exercices;
 
 public class Etudiant {
 	String nom;
+	static String IUT = "IUT de Bordeaux";
 	
-	
-	@Override
-	public String toString() {
-		return "Etudiant [nom=" + nom + "]";
+	public Etudiant() {
+		super();
 	}
 
 
 
-	void bonjour(String s) {
-		System.out.println("Bonjour " +s);
-		System.out.println("Moi, je m'appelle "+nom);
+	public Etudiant(String nom) {
+		super();
+		this.nom = nom;
+	}
+
+
+	 @Override
+		public String toString(){
+		return("Moi, je m'appelle "+nom);
+	}
+	 
+	public static void afficherIUT() {
+		System.out.println("IUT: "+IUT);
 	}
 }
