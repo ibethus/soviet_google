@@ -3,9 +3,12 @@ final int TAILLE_CASE = 800/NB_CASES;
 int [][]grille = new int[NB_CASES][NB_CASES];
 int []dl = {1, 1, 1, 0, -1, -1, -1, 0};
 int []dc = {-1, 0, 1, 1, 1, 0, -1, -1};
+int []gl = {-4, -3, -2, -1, 1, 2, 3, 4};
+int []gc = {-4, -3, -2, -1, 1, 2, 3, 4};
 int ligne;
 int colonne;
-boolean joueur;
+boolean joueur = true;
+boolean jouable;
 int coups = 0;
 
 
@@ -22,7 +25,6 @@ void setup() {
       grille[i][j] = 0;
     }
   }
-  grille[10][10] = 1;
 }
 
 void draw() {
@@ -42,7 +44,7 @@ void dessinerGrille() {
       case 1:
         fill(ROUGE);
         break;
-      case 2:
+      case -1:
         fill(BLEU);
         break;
       }      
@@ -53,28 +55,38 @@ void dessinerGrille() {
 void mousePressed() {
   ligne = floor(map(mouseY, 100, 900, 0, NB_CASES));
   colonne = floor(map(mouseX, 100, 900, 0, NB_CASES));
+  caseJouable();
   estOccupe();
+  jouable = false;
 }
 
 void estOccupe() {
-  //Si dans une case autorisée, on change
-  if (0 <= ligne
-    && ligne <= NB_CASES
-    && 0 <= colonne
-    && colonne <= NB_CASES
-    && grille[ligne][colonne] < 1
-    ) {
-    traiterClic();
-    coups++;
+  try {
+    //Si dans une case autorisée, on change
+    if (coups == 0) {
+      jouable = true;
+    }
+    if (0 <= ligne
+      && ligne <= NB_CASES
+      && 0 <= colonne
+      && colonne <= NB_CASES
+      && grille[ligne][colonne] == 0
+      && jouable) {
+      traiterClic();
+      coups++;
+    }
+  } 
+  catch(ArrayIndexOutOfBoundsException e) {
   }
 }
 
-void traiterClic() { //On change la couleur des cases cliquées
+void traiterClic() { //On change l'état des cases cliquées ainsi que le tour du joueur
   if (joueur) {
     grille[ligne][colonne] = 1;
     joueur = !joueur;
+    gagner();
   } else {
-    grille[ligne][colonne] = 2;
+    grille[ligne][colonne] = -1;
     joueur = !joueur;
   }
 }
@@ -82,8 +94,28 @@ void traiterClic() { //On change la couleur des cases cliquées
 void caseJouable() {
   //Trouver pour toute direction n si la case ligne+dc[n], colonne+dc[n] est occupé, alors -> vrai 
   for (int b = 0; b < 8; b++) {
-    int testL = ligne + dl[b];
-    int testC = colonne + dc[b];
-    println(grille[testL][testC]);
+    if ((grille[ligne + dl[b]][colonne + dc[b]]) != 0) {
+      jouable = true;
+    }
+  }
+}
+void gagner() {
+  int sommeL = 0;
+  int sommeC = 0;
+  int sommeDiag1 = 0;
+  int sommeDiag2 = 0;
+  for (int n = 0; n < 8; n++) {
+    sommeL += grille[ligne + gl[n]][colonne];
+    sommeC += grille[ligne][colonne+gc[n]];
+    sommeDiag1 += grille[ligne+gc[n]][colonne+gc[n]];
+    sommeDiag2 += grille[ligne-gc[n]][colonne+gc[n]];
+
+    if (sommeL == 4
+      || sommeC == 4
+      || sommeDiag1 == 4
+      || sommeDiag2 == 4) {       
+      noLoop();
+    }
+    println(sommeL, sommeC, sommeDiag1, sommeDiag2);
   }
 }
