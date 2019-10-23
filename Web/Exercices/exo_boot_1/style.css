@@ -1,0 +1,6 @@
+.row>.col-md-6, .col-md-3, .col-md-9{
+    border: 4px solid green;
+}
+.col-md-8 div, .col-md-4{
+    border: 2px solid red;
+}

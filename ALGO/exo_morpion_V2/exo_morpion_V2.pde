@@ -3,14 +3,12 @@ final int TAILLE_CASE = 800/NB_CASES;
 int [][]grille = new int[NB_CASES][NB_CASES];
 int []dl = {1, 1, 1, 0, -1, -1, -1, 0};
 int []dc = {-1, 0, 1, 1, 1, 0, -1, -1};
-int []gl = {-4, -3, -2, -1, 1, 2, 3, 4};
-int []gc = {-4, -3, -2, -1, 1, 2, 3, 4};
-int ligne;
-int colonne;
-boolean joueur = true;
-boolean jouable;
+int ligne = 10;
+int colonne = 10;
 int coups = 0;
-
+boolean joueur;
+boolean occupe = false;
+int compteur;
 
 //Couleurs
 final color GRIS = color(200, 200, 200);
@@ -25,11 +23,18 @@ void setup() {
       grille[i][j] = 0;
     }
   }
+  grille[10][10] = 1;
 }
 
 void draw() {
   background(GRIS);
   dessinerGrille();
+  if (gagnant() && joueur == false){
+    fill(0);
+    textSize(20);
+    text("Rouge gagne", 500, 500);
+    noLoop();
+  }
 }
 
 void dessinerGrille() {
@@ -52,28 +57,33 @@ void dessinerGrille() {
     }
   }
 }
+
 void mousePressed() {
-  ligne = floor(map(mouseY, 100, 900, 0, NB_CASES));
-  colonne = floor(map(mouseX, 100, 900, 0, NB_CASES));
-  caseJouable();
-  estOccupe();
-  jouable = false;
+  if (dansTableau() && voisinOccupe() && grille[ligne][colonne] == 0) {
+    traiterClic();
+  }
 }
 
-void estOccupe() {
-  //Si dans une case autorisée, on change
-  if (coups == 0) {
-    jouable = true;
-  }
-  if (0 <= ligne
+boolean dansTableau() {
+  ligne = floor(map(mouseY, 100, 900, 0, NB_CASES));
+  colonne = floor(map(mouseX, 100, 900, 0, NB_CASES));
+  return 0 <= ligne
     && ligne <= NB_CASES
     && 0 <= colonne
-    && colonne <= NB_CASES
-    && grille[ligne][colonne] == 0
-    && jouable) {
-    traiterClic();
-    coups++;
+    && colonne <= NB_CASES;
+}
+
+boolean voisinOccupe() {
+  for (int i = 0; i < 8; i++) {
+    try {
+      if (grille[ligne+dl[i]][colonne+dc[i]] != 0) {
+        return true;
+      }
+    } 
+    catch (Exception e) {
+    }
   }
+  return false;
 }
 
 
@@ -81,48 +91,34 @@ void traiterClic() { //On change l'état des cases cliquées ainsi que le tour d
   if (joueur) {
     grille[ligne][colonne] = 1;
     joueur = !joueur;
-    gagner();
   } else {
     grille[ligne][colonne] = -1;
     joueur = !joueur;
   }
+  compteur++;
 }
-
-void caseJouable() {
-  //Trouver pour toute direction n si la case ligne+dc[n], colonne+dc[n] est occupé, alors -> vrai 
-  for (int b = 0; b < 8; b++) {
-    try {
-      if ((grille[ligne + dl[b]][colonne + dc[b]]) != 0) {
-        jouable = true;
-      }
-    } 
-    catch (Exception e) {
-    }
-  }
-}
-void gagner() {
+boolean gagnant() {
   int sommeL = 0;
   int sommeC = 0;
   int sommeDiag1 = 0;
   int sommeDiag2 = 0;
-  for (int n = 0; n < 8; n++) {
+  for (int i = -5; i < 5; i++) { 
     try {
-      sommeL += grille[ligne + gl[n]][colonne];
-      sommeC += grille[ligne][colonne+gc[n]];
-      sommeDiag1 += grille[ligne+gc[n]][colonne+gc[n]];
-      sommeDiag2 += grille[ligne-gc[n]][colonne+gc[n]];
+      sommeL += grille[ligne+i][colonne];
+      sommeC += grille[ligne][colonne+i];
+      sommeDiag1 += grille[ligne+i][colonne+i];
+      sommeDiag2 += grille[ligne-i][colonne+i];
     } 
     catch (Exception e) {
     }
-    if (sommeL == 4
-      || sommeC == 4
-      || sommeDiag1 == 4
-      || sommeDiag2 == 4) { 
-      fill(0);
-      textSize(20);
-      text("Rouge Gagne", 500, 500);
-      noLoop();
-    }
-    println(sommeL, sommeC, sommeDiag1, sommeDiag2);
+  }
+  println(sommeL, sommeC, sommeDiag1, sommeDiag2);
+  if (sommeL >= 5
+    || sommeC >= 5
+    || sommeDiag1 >= 5
+    || sommeDiag2 >= 5) {
+    return true;
+  } else {
+    return false;
   }
 }

@@ -56,9 +56,9 @@ public class Exercices {
 	static void exo35() {
 		// Les etudiants
 		Etudiant a = new Etudiant();
-		a.nom = "Georges";
+		a.setNom("Georges");
 		Etudiant b = new Etudiant();
-		b.nom = "Albert";
+		b.setNom("Albert");
 		// Le binome
 		Binome bi = new Binome();
 		bi.etu1 = a;
@@ -74,15 +74,15 @@ public class Exercices {
 
 	public static float mystereExo35(Projet p) {
 		System.out.println("Titre du projet : " + p.titre);
-		System.out.println("Premier membre : " + p.b.etu1.nom);
-		System.out.println("Second membre : " + p.b.etu2.nom);
+		System.out.println("Premier membre : " + p.b.etu1.getNom());
+		System.out.println("Second membre : " + p.b.etu2.getNom());
 		return p.note;
 
 	}
 
 	static void exo36() {
 		Etudiant b = new Etudiant();
-		b.nom = "Bob";
+		b.setNom("Bob");
 		System.out.println(b.toString());
 	}
 
@@ -145,15 +145,43 @@ public class Exercices {
 	}
 	
 	static void exo52() {
-		Etudiant a = new Etudiant("Georges");
-
-		a.afficherIUT(); //PAS BIEN !!
-		Etudiant.afficherIUT(); //BIEN
+		//a.afficherIUT(); //PAS BIEN !!
+		//Etudiant.afficherIUT(); //BIEN
 		
+	}
+	
+	static void exo53() {
+		ArrayList<Etudiant> etudiants = new ArrayList<>();
+		etudiants.add(new Etudiant("bob"));
+		etudiants.add(new Etudiant ("clara"));
+		etudiants.add(new Etudiant ("georges"));
+		etudiants.add(new Etudiant ("alfred"));
+		etudiants.add(new Etudiant ("gertrude"));
+		
+		new Etudiant("Georgette"); //En réalité elle n'est pas stockée, donc elle ne doit pas être prise en compte dans le nb total d'étudiants
+		System.out.println(Etudiant.nbTotalEtudiants+" étudiants");
+	}
+	
+	static void exo54() {
+		Etudiant Bob = new Etudiant ("Bob");
+		Etudiant Jeanne = new Etudiant ("Jeanne");
+		Binome bi = new Binome(Bob, Jeanne);
+		Binome bibi = new Binome(bi); //Copie de l'objet Binome bi.
+		System.out.println(bibi);
+		
+	}
+	
+	static void exo58() {
+		Anneau.createAnneau();
+		Anneau.createAnneau();
+		Anneau.createAnneau();
+		Anneau.createAnneau();
+		Anneau.createAnneau();
+		Anneau.createAnneau();
 	}
 
 	public static void main(String[] args) {
-		exo52();
+		exo58();
 	}
 
 }

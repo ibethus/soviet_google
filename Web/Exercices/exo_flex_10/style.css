@@ -1,8 +1,6 @@
 body{
     display: flex;
     flex-direction: row;
-    width: 800px;
-    min-height: 300px;
 }
 .outer-col-2{
     display: flex;
@@ -17,21 +15,29 @@ body{
 .inner-col{
     display:flex;
     flex-direction: column;
-    flex: 1 1 auto;
+    flex: 2;
 }
 nav{
     flex: 1 1 auto;
+    padding: 10px;
     background-color: rgb(143, 201, 143)
 }
 header{
     background-color: rgb(31, 165, 31);
+    height: 20vh;
+    padding: 10px;
 }
 article{
+    flex-basis: 400px;
+    padding: 10px;
 }
 aside{
     background-color: rgb(222, 231, 182);
-    flex: 1 0 auto;
+    flex: 1;
+    padding: 10px;
 }
 footer{
     background-color: rgb(31, 165, 31);
+    height: 20vh;
+    padding: 10px;
 }
