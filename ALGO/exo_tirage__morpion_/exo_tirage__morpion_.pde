@@ -69,5 +69,56 @@ java:
 println("On a tiré" compteurMax "fois le chiffre " valeur);
 
 ALGO 5:
--Quelle est la plus longue séquence d'un tableau ?
+-Combien de cases identiques avant et après le joueur ?
+On cherche la taille des groupes de cases contant la position indiquée
+données: tableau (t) et position (indice p)
+résultat: le nombre d'éléments du groupe contenant la position
+
+pseudo-code:
+{
+  résultat: nombre d'éléments identiques après la position p.
+  nb = 0;
+  i = p;
+  se balader vers la droite ou la gauche (+1 ou -1) pour i < taille(tableau);
+  arrêter si t[i] != t[p];
+  compteur: nb++;
+}
+
+java:
+{tableau t
+position p
+nb = 0;
+i = p;
+while(i < t.size() && t[i]==t[p]){ //droite
+  nb++;
+  i++;
+}
+i=p-1
+while(i>0 && t[i]==t[p]){ //gauche
+  nb++;
+  i--;
+}
+}
+
+morpion: 
+-> taille de l'alignement autour de (l, c) dans une direction d
+->déterminer si il existe un alignement d'au moins 5 cases autour de (l, c):
+  pour chacune des 4 directions d, s'il y a un alignement dans la direction d alors gagner = vrai;
+  
+  position l,c
+  nb = 0
+  li = l
+  ci = c
+  while(position.valide(li, ci) && t[li][ci]==t[l][c]){
+    nb++
+    li += dl[d]
+    ci += dc[d]
+  }
+  li = l - dl[d]
+  ci ) c - dc[d]
+  while(..){
+    nb++
+    li -= dl[d]
+    ci -= dc[d]
+  }
 */

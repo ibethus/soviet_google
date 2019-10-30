@@ -29,12 +29,6 @@ void setup() {
 void draw() {
   background(GRIS);
   dessinerGrille();
-  if (gagnant() && joueur == false){
-    fill(0);
-    textSize(20);
-    text("Rouge gagne", 500, 500);
-    noLoop();
-  }
 }
 
 void dessinerGrille() {
@@ -97,28 +91,10 @@ void traiterClic() { //On change l'état des cases cliquées ainsi que le tour d
   }
   compteur++;
 }
-boolean gagnant() {
-  int sommeL = 0;
-  int sommeC = 0;
-  int sommeDiag1 = 0;
-  int sommeDiag2 = 0;
-  for (int i = -5; i < 5; i++) { 
-    try {
-      sommeL += grille[ligne+i][colonne];
-      sommeC += grille[ligne][colonne+i];
-      sommeDiag1 += grille[ligne+i][colonne+i];
-      sommeDiag2 += grille[ligne-i][colonne+i];
-    } 
-    catch (Exception e) {
-    }
-  }
-  println(sommeL, sommeC, sommeDiag1, sommeDiag2);
-  if (sommeL >= 5
-    || sommeC >= 5
-    || sommeDiag1 >= 5
-    || sommeDiag2 >= 5) {
-    return true;
-  } else {
-    return false;
-  }
+
+void gagner(){
+  int nbCases = 0;
+  int ligneI = ligne;
+  int colonneI = colonne;
+  while(positionValide(ligneI, colonneI)
 }
