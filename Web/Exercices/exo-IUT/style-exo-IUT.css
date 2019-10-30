@@ -1,0 +1,27 @@
+li{
+    list-style-type: none;
+    color: white;
+}
+a{
+    color: white;
+}
+.container>.row>.col-md-5, .container>.row>.col{
+    background-color: rgb(23, 89, 151);
+    padding: 1%;
+}
+.col>p{
+    margin: 0%;
+}
+.jumbotron{
+    justify-content: center;
+    padding: 2%;
+}
+.row{
+    padding: 1%;
+}
+img{
+    padding: 0.5%;
+}
+.lead{
+    text-align: center;
+}
