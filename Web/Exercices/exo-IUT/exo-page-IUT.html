@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style-exo-IUT.css">
     <meta charset="UTF-8">
     <title>Exo-page-IUT</title>
 </head>
-<body>
+<body>  
     <div class="container">
-        <div class="row justify-content-between text-center">
-            <div class="col-4">
-                 <h2>L'IUT de Bordeaux</h2>
-            </div>
-            <div class="col-4">
-                <button type="button" class="btn bg-primary text-light">Home</button>
-                <button type="button" class="btn text-primary">A propos</button>
-                <button type="button" class="btn text-primary">Contacts</button>
-            </div>
-        </div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                    <span class="navbar-text text-dark">L'IUT de Bordeaux</span>
+                <button class="navbar-toggler" 
+                type="button" data-toggle="collapse" 
+                data-target="#navbarSupportedContent" 
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-btn bg-primary text-light btn-lg" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-btn btn-lg text-primary" href="#">A propos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-btn btn-lg text-primary" href="#">Contacts</a>
+                            </li>
+                    </ul>
+                </div>
+            </nav>
     </div>
     <div class="container">
         <div class="jumbotron row">
-                        <img src="logo_ENT_Bx.png" alt="logo_IUT_Bordeaux" width="10%" height="10%">
-                        <img src="iut_bordeaux_rvb-01.jpg" alt="banniere_IUT_Bordeaux" width="17%" height="17%">
+                        <img src="logo_ENT_Bx.png" class="img-fluid" alt="logo_IUT_Bordeaux" max-width="10%" height="auto">
+                        <img src="iut_bordeaux_rvb-01.jpg" class="img-fluid" alt="banniere_IUT_Bordeaux" max-width="17%" height="auto">
                         <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab odio, dolore porro, minima vero accusantium animi corporis reprehenderit officiis at hic, est a ipsum consectetur quis dolorem rem quibusdam recusandae! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non officia beatae molestiae consequuntur. Consequatur natus voluptas eius repellendus, eveniet veniam qui dolorem beatae excepturi debitis enim, aperiam at sit sapiente? Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque consectetur nisi nemo totam debitis incidunt esse ab, repudiandae autem quas fuga rerum enim illo illum, eos quo cupiditate et tempora.</p>
                         <a class="btn btn-success btn-lg bg-success" href="#" role="button">Vous inscrire</a>
         </div>
@@ -30,14 +43,16 @@
     <div class="container">
         <div class="row justify-content-around text-center">
             <div class="col-md-4">
-                <img src="chat.jpg" class="img-circle" alt="grumpy cat" width="200px" height="200px">
+                <img src="chat.jpg" class="rounded-circle" alt="grumpy cat" width="200px" height="auto">
                 <h1>LP</h1>
                 <p>DAWIN: Vous avez un bac+2 en informatique ? Devenez développeur de l'espace grâce à Nicolas Journet !</p>
+                <button type="button" class="btn btn-outline-secondary text-dark">En savoir plus >></button>
             </div>
             <div class="col-md-4">
-                <img src="chiot.jpg" class="img-circle" alt="chiot" width="200px" height="200px">
+                <img src="chiot.jpg" class="rounded-circle" alt="chiot" width="200px" height="auto">
                 <h1>DUT</h1>
-                <p>AS: Plus fort que le roquefort, en 1 an seulement, devenez développeur informatique extraterretre !</p>
+                <p>AS: Plus fort que le roquefort, en 1 an seulement, devenez développeur informatique extraterrestre !</p>
+                <button type="button" class="btn btn-outline-secondary text-dark">En savoir plus >></button>
             </div>
         </div>
     </div>
@@ -47,15 +62,15 @@
                 <h3>Mentions légales</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae distinctio fugit blanditiis illum aliquam et, aliquid sed, provident, in ut aut earum a laborum nobis eligendi temporibus excepturi repellendus. Numquam? <a href="#">Plus d'informations</a></p>
             </div>
-            <div class="col">
+            <div class="col-md">
                 <h3>
                     Contacts
                 </h3>
                 <p><a href="#">tel(33)678983827</a></p>
                 <p><a href="#">fax(33)678983827</a></p>
-                <p><a href="#" >email: chuck@norris.iutinfobdx.bzh</a></p>
+                <p><a href="mailto:chuck@norris.iutinfobdx.bzh" >email: chuck@norris.iutinfobdx.bzh</a></p>
             </div>
-            <div class="col">
+            <div class="col-md">
                 <h3>
                     Plaquettes
                 </h3>
@@ -66,5 +81,8 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

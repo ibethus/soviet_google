@@ -5,9 +5,12 @@ li{
 a{
     color: white;
 }
-.container>.row>.col-md-5, .container>.row>.col{
-    background-color: rgb(23, 89, 151);
+.container>.row>.col-md-5, .container>.row>.col-md{
+    background-color: rgb(28, 140, 245);
     padding: 1%;
+}
+.col-md-4{
+    padding: 3%;
 }
 .col>p{
     margin: 0%;
@@ -25,3 +28,29 @@ img{
 .lead{
     text-align: center;
 }
+@media screen and (min-width: 320px) {
+    span{
+      font-size: 6vw;
+    }
+  }
+  @media screen and (min-width: 720px) {
+    span{
+      font-size: 3vw;
+    }
+  }
+  @media screen and (min-width: 320px) {
+    p, .btn{
+      font-size: 5vw;
+    }
+  }
+  @media screen and (min-width: 720px) {
+    p, .btn{
+      font-size: 2.2vw;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    p, .btn{
+      font-size: 1.5vw;
+    }
+  }
+  
