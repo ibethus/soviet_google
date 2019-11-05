@@ -14,7 +14,7 @@ public class Professeur extends Personne {
 		nbProfesseurs++;
 	}
 
-	public static int getnbProfesseurs() {
+	public static int getNbTotal() {
 		return nbProfesseurs;
 	}
 }

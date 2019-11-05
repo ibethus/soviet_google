@@ -9,13 +9,22 @@ public class Etudiant extends Personne {
 		super();
 		nbTotalEtudiants++;
 	}
+	public void bonjour(String s) {
+		System.out.println("Bonjour, moi je m'appelle"+ getNom());
+	}
+	
+	@Override
+	public String toString() {
+		return "Je m'appelle "+super.toString()+" et je suis un étudiant très studieux";
+	}
+
 
 	public Etudiant(String nom) {
 		super(nom);
 		nbTotalEtudiants++;
 	}
 
-	public static int getNbTotalEtudiants() {
+	public static int getNbTotal() {
 		return nbTotalEtudiants;
 	}
 

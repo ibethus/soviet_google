@@ -28,13 +28,26 @@ public class MainAppli {
 				e.getNom(), f.getNom(), g.getNom(), h.getNom(), i.getNom(), r.getNom(), l.getNom(), l.getNom(),
 				m.getNom(), n.getNom(), o.getNom(), p.getNom());
 		System.out.format("Le professeur s'appelle :\n %s\n\n", a.getNom());
-		System.out.format("Nombre d'étudiants: %d\n", Etudiant.getNbTotalEtudiants());
-		System.out.format("Nombre de professeurs: %d\n", Professeur.getnbProfesseurs());
-		System.out.format("Nombre total de personnes: %d\n", Personne.getNbPersonne());
+		System.out.format("Nombre d'étudiants: %d\n", Etudiant.getNbTotal());
+		System.out.format("Nombre de professeurs: %d\n", Professeur.getNbTotal());
+		System.out.format("Nombre total de personnes: %d\n", Personne.getNbTotal());
 	}
 
+	static void exo68() {
+		Etudiant e = new Etudiant("Arsene Lupin");
+		Etudiant a = new Etudiant("Arsene Lupin");
+
+		System.out.println("Est-ce que "+e.getNom()+" (e)");
+		System.out.println("est identique à "+a.getNom()+" (a) ?");
+		System.out.println("It's "+e.equals(a));
+
+	}
+	static void exo69() {
+		for (int i=0; i<=100000000; i++)
+			new Personne(" Robert Bidochon numero "+i); 
+	}
 	public static void main(String[] args) {
-		exo62();
+		exo69();
 	}
 
 }
