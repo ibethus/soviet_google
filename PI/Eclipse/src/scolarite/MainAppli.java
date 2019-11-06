@@ -43,9 +43,10 @@ public class MainAppli {
 
 	}
 	static void exo69() {
-		for (int i=0; i<=100000000; i++)
+		for (int i=0; i<=100; i++)
 			new Personne(" Robert Bidochon numero "+i); 
 	}
+	
 	public static void main(String[] args) {
 		exo69();
 	}
