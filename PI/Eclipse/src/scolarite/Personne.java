@@ -15,6 +15,10 @@ public class Personne {
 		nbPersonne++;
 	}
 	
+	public void age() {
+		System.out.println("[Personne]: Une personne a entre 0 et 99 ans");
+	}
+	
 	@Override
 	public String toString() {
 		return nom;

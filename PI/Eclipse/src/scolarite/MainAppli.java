@@ -47,8 +47,21 @@ public class MainAppli {
 			new Personne(" Robert Bidochon numero "+i); 
 	}
 	
+	static void exo75() {
+		Etudiant a = new Etudiant("Jojo");
+		Etudiant c = (Etudiant) a; //Conversion descendante
+		Personne b = (Personne) c; //Conversion ascendante
+		Personne d = new Personne("Georges");
+		((Personne)b).age();
+		
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+		System.out.println(d);
+	}
+	
 	public static void main(String[] args) {
-		exo69();
+		exo75();
 	}
 
 }

@@ -88,8 +88,7 @@ void drawButtons() {
   textSize(BUTTON_FONT_SIZE);
   textAlign(CENTER, CENTER);
   for (int i = 0; i < nbButtons; i++) {
-    float x = map(i, 0, nbButtons, X_BUTTONS_AREA, 
-      X_BUTTONS_AREA + W_BUTTONS_AREA);
+    float x = map(i, 0, nbButtons, X_BUTTONS_AREA, X_BUTTONS_AREA + W_BUTTONS_AREA);
 
     strokeWeight(4);
     stroke(i == buttonHover ? HOVER_COLOR : NORMAL_STROKE_COLOR);

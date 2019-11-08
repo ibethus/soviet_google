@@ -15,7 +15,7 @@ public class Etudiant extends Personne {
 	
 	@Override
 	public String toString() {
-		return "Je m'appelle "+super.toString()+" et je suis un étudiant très studieux";
+		return "[Etudiant]]"+" Je m'appelle "+super.toString()+" et je suis un étudiant très studieux";
 	}
 
 
@@ -26,6 +26,9 @@ public class Etudiant extends Personne {
 
 	public static int getNbTotal() {
 		return nbTotalEtudiants;
+	}
+	public void age() {
+		System.out.println("[Etudiant]: Un étudiant est jeune, en général");
 	}
 
 }
