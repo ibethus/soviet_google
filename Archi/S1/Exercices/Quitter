@@ -1,1 +1,34 @@
 #!/bin/bash
+
+if [ $# -ne 2 ]
+then    
+    echo "Vous devez saisir 2 paramètres: heure et 'commentaire'"
+    exit 2
+fi
+
+heureRDV=$1
+comentUSER=$2
+
+if [ ! -d ~/.quitter ]
+then
+mkdir ~/.quitter
+fi
+
+echo "$heureRDV: $comentUSER" >> ~/.quitter/horaires.db
+cd ~/.quitter
+nbLignes=$(< horaires.db wc -l)
+echo $nbLignes
+
+
+while [ $nbLignes -ne 0 ]
+do
+    for i in $(seq 1 $nbLignes)
+    do
+        horaire=$(sed "${i}q;d" horaires.db | cut -d: -f1)
+        date=$(date +%H%M)
+        if [ $date = $horaire ]
+        then
+        echo "Votre RDV !"
+        fi
+    done
+done
