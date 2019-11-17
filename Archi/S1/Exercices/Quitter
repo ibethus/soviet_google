@@ -2,7 +2,7 @@
 
 if [ $# -ne 2 ]
 then    
-    echo "Vous devez saisir 2 paramètres: heure et 'commentaire'"
+    echo "Vous devez saisir 2 paramètres: heure (HHMM) et 'commentaire'"
     exit 2
 fi
 
@@ -22,6 +22,8 @@ echo $nbLignes
 
 while [ $nbLignes -ne 0 ]
 do
+    echo "$!" > boucle.pid
+    sleep 30
     for i in $(seq 1 $nbLignes)
     do
         horaire=$(sed "${i}q;d" horaires.db | cut -d: -f1)
@@ -30,8 +32,7 @@ do
         if [ $date = $horaire ]
         then
         xmessage $message -buttons FERMER
-        sed -i "s@$message@@g" horaires.db
-        sed -i "s@$message\n@@g" horaires.db
+        sed -i "${i}d" horaires.db
         nbLignes=$(< horaires.db wc -l)
         fi
     done
