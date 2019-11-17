@@ -18,11 +18,17 @@ int []dc = {-1, 0, 1, 1, 1, 0, -1, -1};
 int voisinL = 0;
 int voisinC = 0;
 
+//Boutons
+Bouton charger = new Bouton(205, 850, "Charger");
+Bouton etape = new Bouton(305, 850, "Etape");
+Bouton editer = new Bouton(405, 850, "Editer");
+Bouton play = new Bouton(505, 850, "Play");
+Bouton sauver = new Bouton(605, 850, "Sauver");
+Bouton quitter = new Bouton(705, 850, "Quitter");
 
 void setup() {
   size(1000, 1000); 
-  noStroke();
-  frameRate(5);
+  frameRate(30);
   lines = loadStrings("test.txt");
 
   //On lance l'analyse du fichier par le programme
@@ -35,9 +41,20 @@ void setup() {
 }
 
 void draw() {
+  //Core
+  strokeWeight(1);
   dessinerGrille();
   testerGrille();
   updateGrille();
+  
+  //dessin des boutons
+  charger.dessiner();
+  etape.dessiner();
+  editer.dessiner();
+  play.dessiner();
+  sauver.dessiner();
+  quitter.dessiner();
+  fill(0);
 }
 
 //On récupère les informations du fichier source
@@ -107,12 +124,12 @@ void placementPoints() {
 void testerGrille() {
   for (int i = 0; i < lignes; i++) {
     for (int j = 0; j < colonnes; j++) {
-      
+
       grille2[i][j] = grille[i][j];
-      
+
       int x = voisinOccupe(i, j);
       println(x);
-      
+
       if ((x == 3) && (grille[i][j] == false)) {
         grille2[i][j] = true;
       }
@@ -145,4 +162,18 @@ int voisinOccupe(int ligne, int colonne) {
     }
   }
   return voisins;
+}
+void mousePressed(){
+ if (charger.contientPointeur()){
+  charger.changer(); 
+ }
+}
+void mouseReleased(){
+  charger.appuye = false;
+  etape.appuye = false;
+  editer.appuye = false;
+  play.appuye = false;
+  sauver.appuye = false;
+  quitter.appuye = false;
+  
 }

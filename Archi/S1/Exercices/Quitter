@@ -26,9 +26,13 @@ do
     do
         horaire=$(sed "${i}q;d" horaires.db | cut -d: -f1)
         date=$(date +%H%M)
+        message=$(sed "${i}q;d" horaires.db)
         if [ $date = $horaire ]
         then
-        echo "Votre RDV !"
+        xmessage $message -buttons FERMER
+        sed -i "s@$message@@g" horaires.db
+        sed -i "s@$message\n@@g" horaires.db
+        nbLignes=$(< horaires.db wc -l)
         fi
     done
 done

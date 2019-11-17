@@ -35,10 +35,11 @@ public class GroupeEleves {
 	}
 	
 	public void meilleurEleve() {
-		System.out.println(Collections.max(listeEleves));
+		System.out.println("Meilleur élève: "+Collections.max(listeEleves));
 	}
 	public void trierEleves() {
-		//System.out.println(Collections.sort(listeEleves));
+		Collections.sort(listeEleves);
+		System.out.println("Tri des élèves par notes: "+listeEleves);
 	}
 	
 }
