@@ -1,28 +1,56 @@
 #!/bin/bash
 
-if [ $# -ne 2 ]
-then    
-    echo "Vous devez saisir 2 paramètres: heure (HHMM) et 'commentaire'"
-    exit 2
-fi
-
-heureRDV=$1
-comentUSER=$2
-
+## Vérifier si le dossier existe, sinon le créer ##
 if [ ! -d ~/.quitter ]
 then
 mkdir ~/.quitter
 fi
 
-echo "$heureRDV: $comentUSER" >> ~/.quitter/horaires.db
+## On se place dans le dossier ##
 cd ~/.quitter
+
+## Stocker les variables entrées par l'utilisateur ##
+heureRDV=$1
+comentUSER=$2
+
+## On regarde ce que l'utilisateur a entré et on en déduit les fonctions à éxecuter ##
+case $heureRDV in
+
+-q)
+cat boucle.pid | 
+kill -9
+;;
+
+-l)
+cat horaires.db
+;;
+
+-r)
+echo "supprimer"
+;;
+
+esac
+
+
+#if [ $# -ne 2 ]
+#then    
+#     echo "Vous devez saisir 2 paramètres: heure (HHMM) et 'commentaire'"
+#    echo "** -q: arrête la boucle, -l: affiche les rdv, -r HHMM supprime un rdv **"
+#    exit 2
+#fi
+
+
+## Stockage des données utlisateur dans le fichier ##
+echo "$heureRDV: $comentUSER" >> ~/.quitter/horaires.db
+
+## On clacule le nombre de lignes du document ##
 nbLignes=$(< horaires.db wc -l)
 echo $nbLignes
 
-
+## Début de la boucle infinie qui rappelle le rdv lorsque l'heure est arrivée ##
 while [ $nbLignes -ne 0 ]
 do
-    echo "$!" > boucle.pid
+    echo $! > boucle.pid
     sleep 30
     for i in $(seq 1 $nbLignes)
     do

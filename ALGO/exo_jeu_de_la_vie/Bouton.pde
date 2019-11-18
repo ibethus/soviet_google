@@ -1,5 +1,4 @@
-class Bouton {
-  //Couleurs
+//Couleurs
 final color BLACK = color(0);
 final color WHITE = color(255);
 final color RED = color(255, 0, 0);
@@ -8,8 +7,11 @@ final color YELLOW = color(255, 255, 0);
 //Choix couleurs
 final color NORMAL_BUTTON_COLOR = WHITE;
 final color SELECTED_BUTTON_COLOR = RED;
+final color SELECTED_TEXT_COLOR = YELLOW;
 final color HOVER_COLOR = YELLOW;
 final color NORMAL_STROKE_COLOR = BLACK;
+
+class Bouton {
   int x, y;
   int size = 90;
   boolean appuye;
@@ -33,19 +35,21 @@ final color NORMAL_STROKE_COLOR = BLACK;
     return x<mouseX && mouseX<x+size
       && y<mouseY && mouseY<y+size;
   }
-  
-  void changer(){
-   appuye = !appuye; 
+
+  void changer() {
+    appuye = !appuye;
   }
-  
+
   void dessiner() {
     strokeWeight(4);
     stroke(contientPointeur() ? HOVER_COLOR : NORMAL_STROKE_COLOR);
 
     fill(appuye ? SELECTED_BUTTON_COLOR : NORMAL_BUTTON_COLOR);
     rect(x, y, size, size);
-    
+
     fill(0);
+    textAlign(CENTER);
+    textSize(20);
     text(nom, x+size/2, y+size/2);
   }
 }
