@@ -15,7 +15,7 @@ public class Etudiant extends Personne {
 	
 	@Override
 	public String toString() {
-		return "[Etudiant]]"+" Je m'appelle "+super.toString()+" et je suis un étudiant très studieux";
+		return  "Je m'appelle "+super.toString()+" et je suis ";
 	}
 
 
@@ -31,4 +31,13 @@ public class Etudiant extends Personne {
 		System.out.println("[Etudiant]: Un étudiant est jeune, en général");
 	}
 
+	/*
+	 * @Override public boolean equals(Object o) { //comparaison sur le nom Etudiant
+	 * autre = (Etudiant) o; return this.getNom().equals(autre.getNom()); }
+	 * 
+	 * @Override public int hashCode() { if (getNom()!=null) return
+	 * getNom().charAt(0); // getNom().hashCode() conviendrait aussi return 0; }
+	 */
+	
+	
 }

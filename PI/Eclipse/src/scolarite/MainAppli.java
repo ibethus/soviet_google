@@ -1,5 +1,10 @@
 package scolarite;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.ListIterator;
+
 public class MainAppli {
 
 	static void exo60() {
@@ -60,8 +65,71 @@ public class MainAppli {
 		System.out.println(d);
 	}
 	
+	static void exo77(){
+		Etudiant a = new Etudiant("Florian");
+		Etudiant b = new Etudiant("Emile");
+		
+		//Ajout des étudiants à la liste doublement chaînée
+		LinkedList<Personne> llEtu = new LinkedList<>();
+		llEtu.add(a);
+		llEtu.add(b);		
+		System.out.println(llEtu);
+		
+		//Ajout d'un étudiant c entre a et b
+		Etudiant c = new Etudiant("Ivan");
+		ListIterator<Personne> liEtu = llEtu.listIterator();
+		liEtu.next();
+		liEtu.add(c);
+		System.out.println(llEtu);
+		
+		//Ajout d'un étudiant d entre a et c
+		Etudiant d = new Etudiant("Xavier");
+		liEtu.previous();
+		liEtu.add(d);
+		System.out.println(llEtu);
+		
+		//Supression de l'étudiant c
+		liEtu.next();
+		liEtu.remove();
+		System.out.println(llEtu);
+
+	}
+	
+	static void exo80() {
+		Etudiant a = new Etudiant("Florian");
+		Etudiant b = new Etudiant("Emile");
+		Etudiant c = new Etudiant("Florian");
+		HashSet hs = new HashSet();
+		hs.add(a);
+		hs.add(b);
+		hs.add(c);
+		System.out.println(hs);
+	}
+	
+	static void exo81() {
+		//On ajoute les étudiants au Hash
+		Etudiant a = new Etudiant("Florian");
+		Etudiant b = new Etudiant("Emile");
+		Etudiant c = new Etudiant("Ivan");
+		HashSet hs = new HashSet();
+		hs.add(a);
+		hs.add(b);
+		hs.add(c);
+		
+		//On leur ajoute la possibilité d'avoir des commentaires
+		HashMap<Etudiant, String> remarque = new HashMap<Etudiant, String>();
+		remarque.put(a, "un étudiant hors du commun.");
+		remarque.put(b, "un étudiant souvent en retard.");
+		remarque.put(c, "un étudiant très ponctuel.");
+		
+		//Affichage des remarques
+		for (Etudiant etu : remarque.keySet()){
+		System.out.println(etu+remarque.get(etu));
+		}
+	}
+	
 	public static void main(String[] args) {
-		exo75();
+		exo81();
 	}
 
 }
