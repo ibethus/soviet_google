@@ -11,44 +11,47 @@ cd ~/.quitter
 touch boucle.pid
 
 ## On regarde ce que l'utilisateur a entré et on en déduit les fonctions à éxecuter ##
-##if [ $# -e 1 ]
-##then
+if [ $# -eq 1 ]
+then
 case $1 in
 
+## Option pour arrêter la boucle ##
 -q)
-kill -9 | cat boucle.pid
+pid=$(cat boucle.pid)
+kill -9 $pid
 rm boucle.pid
+exit 1
 ;;
 
+## Afficher tous les rdv ##
 -l)
 cat horaires.db
+exit 1
 ;;
 
 esac
 
-##else if [ $# -e 2 ]
-##then
+## Si plus de deux paramètres, on change de 'case' ##
+elif [ $# -eq 2 ]
+then
+
 ## Stockage données utilisateur ##
-heureRDV=$1
-commentUSER=$2
 
 case $1 in
 
 -r)
-grep $2 | sed -i d horaires.db
-echo "supprimé"
+sed -i "$2d" horaires.db
+echo "Ligne $2 supprimée"
+exit 1
+;;
+
+*)
+heureRDV=$1
+comentUSER=$2
 ;;
 
 esac
-
-
-#if [ $# -ne 2 ]
-#then    
-#     echo "Vous devez saisir 2 paramètres: heure (HHMM) et 'commentaire'"
-#    echo "** -q: arrête la boucle, -l: affiche les rdv, -r HHMM supprime un rdv **"
-#    exit 2
-#fi
-
+fi
 
 ## Stockage des données utlisateur dans le fichier ##
 echo "$heureRDV: $comentUSER" >> ~/.quitter/horaires.db
