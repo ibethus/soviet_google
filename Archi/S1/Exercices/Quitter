@@ -8,25 +8,35 @@ fi
 
 ## On se place dans le dossier ##
 cd ~/.quitter
-
-## Stocker les variables entrées par l'utilisateur ##
-heureRDV=$1
-comentUSER=$2
+touch boucle.pid
 
 ## On regarde ce que l'utilisateur a entré et on en déduit les fonctions à éxecuter ##
-case $heureRDV in
+##if [ $# -e 1 ]
+##then
+case $1 in
 
 -q)
-cat boucle.pid | 
-kill -9
+kill -9 | cat boucle.pid
+rm boucle.pid
 ;;
 
 -l)
 cat horaires.db
 ;;
 
+esac
+
+##else if [ $# -e 2 ]
+##then
+## Stockage données utilisateur ##
+heureRDV=$1
+commentUSER=$2
+
+case $1 in
+
 -r)
-echo "supprimer"
+grep $2 | sed -i d horaires.db
+echo "supprimé"
 ;;
 
 esac
@@ -43,14 +53,15 @@ esac
 ## Stockage des données utlisateur dans le fichier ##
 echo "$heureRDV: $comentUSER" >> ~/.quitter/horaires.db
 
-## On clacule le nombre de lignes du document ##
+## On calcule le nombre de lignes du document ##
 nbLignes=$(< horaires.db wc -l)
-echo $nbLignes
 
-## Début de la boucle infinie qui rappelle le rdv lorsque l'heure est arrivée ##
+## Fonction de la boucle infinie qui rappelle le rdv lorsque l'heure est arrivée ##
+function boucle
+{
 while [ $nbLignes -ne 0 ]
 do
-    echo $! > boucle.pid
+echo $$ > boucle.pid
     sleep 30
     for i in $(seq 1 $nbLignes)
     do
@@ -65,3 +76,12 @@ do
         fi
     done
 done
+}
+
+## Lancement de la boucle ##
+if [ -s boucle.pid ]
+then
+echo "Boucle déjà lancée"
+else
+boucle
+fi
