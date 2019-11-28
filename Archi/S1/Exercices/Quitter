@@ -25,7 +25,7 @@ exit 1
 
 ## Afficher tous les rdv ##
 -l)
-cat horaires.db
+cat -n horaires.db
 exit 1
 ;;
 
