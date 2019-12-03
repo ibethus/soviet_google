@@ -1,0 +1,22 @@
+[data-tooltip]{
+    border-bottom: 1px dotted grey;
+    position: relative;
+}
+[data-tooltip]:hover:after{
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 1.5em;
+    left: 0;
+}
+a[href$=".pdf"]{
+    visibility: visible;
+    color: blue;
+    border: 12px solid blue;
+}
+a[href$=".pdf"]::after{
+    content: "("attr(title)")";
+    font-style: italic;
+}
+a{
+    visibility: hidden;
+}

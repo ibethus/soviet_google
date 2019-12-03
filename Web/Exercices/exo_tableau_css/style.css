@@ -1,0 +1,28 @@
+td:empty~th{
+    background-color: #c3b1a0;
+}
+tr+tr:nth-child(odd){
+    background-color: #d9d9d9;
+}
+tr+tr:nth-child(even){
+    background-color: #4a9abe;
+}
+tr+tr:hover{
+    background-color: rgb(71, 92, 92);
+}
+th~td:hover, [scope="row"]:hover{
+    color: white;
+    background-color: rgb(33, 36, 33);
+}
+td+td::after{
+content: "€";
+}
+th, td{
+    min-width: 150px;
+}
+tr>th{
+    text-align: left;
+}
+td+td, th+th{
+    text-align: right;
+}

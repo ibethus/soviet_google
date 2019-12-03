@@ -1,0 +1,22 @@
+#paragraphe1 {
+    columns: 2;
+    column-rule: 1px solid grey;
+}
+#paragraphe2{
+    columns: 4;
+    column-rule: 1px solid grey;
+}
+#paragraphe3{
+    columns: 4;
+    column-rule: 1px solid grey;
+}
+h3{
+    column-span: initial;
+}
+#paragraphe2>p+p{
+    background-color: lightslategray;
+}
+#paragraphe1 p{
+    color: lightslategray;
+    font-style: italic;
+}

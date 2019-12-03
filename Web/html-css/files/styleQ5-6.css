@@ -1,0 +1,27 @@
+label {
+	display : block;
+}
+input {
+	width: 250px;
+	padding: 4px;
+	border:1px solid #555;
+}
+input[type="submit"]{
+	width: auto;
+	padding: 4px 15px;
+	background #555;
+	color:red;
+	cursor: pointer;
+}
+
+input:not([type=submit]):invalid {
+  border-right: 8px solid red;	
+}
+input:not([type=submit]):valid {
+  border-right: 8px solid green;		
+}
+input:not([type=submit]):required+span:after{  
+	 color:red;	
+  	 content: "(required)";
+ 
+}
