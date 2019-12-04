@@ -1,0 +1,44 @@
+html, body{
+    height: 100%;
+}
+.parallax-main {
+    height: 100%;
+    background: transparent;
+    position: relative;
+}
+header>.bg-dark{
+    background-color: black !important;
+}
+.centered>img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+.centered-bottom>img{
+    width: 2rem;
+    height: 2rem;
+    top: 50%;
+}
+
+@media screen and (max-width: 400px) {
+h1{
+    font-size: 2rem !important;
+}
+}
+
+.centered {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white !important;
+    text-align: center;
+  }
+  .centered-bottom {
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white !important;
+    text-align: center;
+  }
