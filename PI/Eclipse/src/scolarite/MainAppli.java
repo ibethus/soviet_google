@@ -128,8 +128,16 @@ public class MainAppli {
 		}
 	}
 	
+	static void exo99() {
+		try {
+			Promotion as2012 = new Promotion("DUT Informatique - Annee Speciale", 2012,-9000);
+		} catch (NbEtudiantsException e) {
+			e.printStackTrace();
+		}
+	}
+		
 	public static void main(String[] args) {
-		exo81();
+		exo99();
 	}
 
 }

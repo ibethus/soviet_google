@@ -1,0 +1,70 @@
+Gousto is the UK’s leading recipe box company delivering precise ingredients, delicious recipes and a dollop of adventure to thousands of homes across the UK.
+
+As one of Europe’s fastest growing independent companies, you’ll be part of an exciting, expanding team and trailblazing company.
+
+Food and tech is at the heart of what we do. Using industry-leading technology, we’ve connected over 6 million people to delicious food so far. By 2025 we’ll have delivered 400 million delicious meals to dinner tables across the country... and we’re only just getting started.
+
+Our mission is to reduce food waste and we've committed to cutting down the plastic in our boxes by 50% by the end of the year, this is one of the larger projects the team are working on at the moment.
+
+Join us and let’s dream big and deliver bigger. Unbox possibility.
+
+The Opportunity
+
+The code we write powers every aspect of our business from the menu recommendation engine to driving our supply chain. We are a scale up business on a steep growth trajectory, and with that comes the need to build a platform that can scale. In parallel to this, we need to expand our team, evolving effective tools and processes that ensure we can continue to deliver quality code at pace.
+
+Our Android app is built using both Kotlin and Java, based on Clean Architecture. We continue to keep up with the latest best practices and technologies, which allows us to iterate on ideas quickly without sacrificing the maintainability of our codebase. We make extensive use of automated testing, and have a high level of coverage throughout our app using a combination of Unit Tests and UI Automation.
+
+Your skills and experience will help us move to the next level. We know we’ve got lots of things right but we also have many things still to improve. Right now we’re working on migrating our app from Java to Kotlin, and are making extensive use of Coroutines for our asynchronous tasks.
+
+We are making huge investments in technology, and plan to triple the size of our team to over 200 people in the next few years. As well as providing lots of career growth for our team, there will be plenty of opportunities to lead, mentor, influence and learn.
+
+What’s it really like to work here?
+
+    We are customer-centric, data driven and outcome focused, using lean principles to work iteratively, experiment and learn fast.
+    We work in cross-functional squads which we are slowly evolving to include business partners. This allows us to work more closely with our colleagues in food, operations and marketing, enabling greater alignment, collaboration and innovation.
+    Our squads have a high level of autonomy to decide both what outcomes they should pursue and how they will achieve them.
+    We believe in being agile rather than committing to a single framework. We have a set of lean and agile principles which we follow, but beyond that squads are empowered and encouraged to tailor their working processes.
+    We discourage pigeon-holing which means our engineers are responsible for designing, writing, testing, releasing and maintaining their code in production. We don’t have QAs, and our Mobile Lead works closely with squads to consult and collaborate.
+    Pairing and Whiteboarding are practices we champion and want to keep improving.
+    10% of our time is dedicated to tech innovation and we hold regular brown bags.
+
+We are committed to being involved in the wider tech community, hosting meetups, speaking at events and sharing learnings via our blog.
+
+Requirements
+
+    Knowledge of Java, Kotlin and the Android framework
+    Understanding of architecture patterns such as Clean Architecture, MVP, and MVVM
+    Working with RESTful Web Services
+    Experience of CI/CD tooling and automated testing, we use JUnit and Espresso
+    A knowledge of lean product development and the build, measure, learn loop
+
+What we look for in a great Software Engineer
+
+Great engineering - and this is so much more than writing great code. As well as good software craftsmanship practices, you value thorough test coverage. You’ll know the fundamentals of great design and have experience of maintaining your code in production.
+
+Collaboration - we firmly believe that software is a team sport and that effective, quality solutions are delivered quickly when teams work together.
+
+Ownership - agility only works with accountability. We believe in empowering teams, and hand in hand with that we expect teams a strong sense of responsibility and commitment from our teams.
+
+Lean delivery - you value agility as much as you value great code. You deliver in small batches to reduce risk and create a fast feedback loop. You have a continuous improvement mindset, constantly seeking to improve your team’s processes.
+
+Growth mindset - you are curious and are always looking to learn. You value feedback as a learning tool, and you offer constructive feedback to help your teammates improve.
+
+Benefits
+
+    Holidays - 25 days of holiday (plus bank holidays) increasing by a day each year up to 30 days
+    Option to buy additional days of annual leave up to a total of 30 days
+    Discounted Gousto boxes - 40% staff discount on Gousto boxes and 25% for your family and friends plus your first box free
+    Dr Gousto Healthcare via Babylon Health
+    Access to Gousto Academy training courses
+    Gym Membership
+    Cycle to work scheme
+    Referral Scheme
+    Pension
+    Quarterly team socials and mixed team events
+    Coffee/ Tea, fruit and ice cream provided every single day to keep you fresh
+    Friday socials - Wine, beer and soft-drinks
+
+Equal opportunity
+
+We are hugely committed to equality of opportunity in all areas of Gousto. We employ over 20 nationalities and think it's deeply important to have both genders represented in all functions and levels. All individuals will be treated in a fair and equal manner and in accordance with the law regardless of age, disability, gender, pregnancy and maternity, marital status, race, religion or sexual orientation.
