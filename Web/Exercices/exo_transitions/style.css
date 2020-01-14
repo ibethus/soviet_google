@@ -1,0 +1,16 @@
+p {
+    width: 7rem;
+    height: 2rem;
+    margin: 0;
+    padding: 1rem;
+    background-color: rgb(26, 24, 88);
+    font-size: 20px;
+    color: white;
+    transition : all 1s ease-out;
+ }
+ p:hover{
+    height: 15rem;
+    width: 15rem;
+    color: black;
+    background-color: rgb(95, 173, 201);
+}

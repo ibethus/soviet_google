@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="help" name="tuto">
+
+    <property environment="env"/>
+    <property name="as.home" value="${env.AS_HOME}"/>
+    <property name="lib.home" value="${env.JAXWS_HOME}/lib"/>
+    <property name="lib.sample.home" value="${basedir}/../lib"/>
+    <property name="build.home" value="${basedir}/build"/>
+    <property name="build.classes.home" value="${build.home}/classes"/>    
+    <property name="domain" value="domain1"/>
+
+    <path id="jaxws.classpath">
+        <pathelement location="${java.home}/../lib/tools.jar"/>
+        <fileset dir="${lib.home}">
+            <include name="*.jar"/>
+            <exclude name="j2ee.jar"/>
+        </fileset>
+    </path>
+
+    <taskdef name="annotationProcessing" classname="com.sun.tools.ws.ant.AnnotationProcessingTask">
+        <classpath refid="jaxws.classpath"/>
+    </taskdef>
+
+    <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+        <classpath refid="jaxws.classpath"/>
+    </taskdef>
+
+
+    <target name="setup">
+        <mkdir dir="${build.home}"/>
+        <mkdir dir="${build.classes.home}"/>
+    </target>
+
+    <target name="build-server-java" depends="setup">
+        <annotationProcessing
+                fork="true"
+                debug="true"
+                verbose="${verbose}"
+                destdir="${build.classes.home}"
+                srcdir="${basedir}/src"
+                includes="**/server/**,**/common/**"
+                sourceDestDir="${build.classes.home}"
+                procOnly="false"
+                sourcepath="${basedir}/src">
+            <classpath>
+                <path refid="jaxws.classpath"/>
+                <pathelement location="${basedir}/src"/>
+            </classpath>
+        </annotationProcessing>
+        <copy todir="${build.classes.home}">
+            <fileset dir="${basedir}/src">
+                <include name="**/server/**/*.xml"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build.home}" includeEmptyDirs="true"/>
+    </target>
+
+    <target name="generate-client" depends="setup">
+        <wsimport
+                debug="true"
+                verbose="${verbose}"
+                keep="true"
+                destdir="${build.classes.home}"
+                package="tuto.client"
+                wsdl="http://localhost:4040/date?wsdl">
+        </wsimport>
+    </target>
+
+    <target name="client" depends="generate-client">
+        <javac
+                fork="true"
+                srcdir="${basedir}/src"
+                destdir="${build.classes.home}"
+                includes="**/client/**,**/common/**">
+            <classpath refid="jaxws.classpath"/>
+        </javac>
+    </target>
+
+    <target name="client-run">
+        <java fork="true" classname="tuto.client.Client">
+            <classpath>
+                <path refid="jaxws.classpath"/>
+                <pathelement location="${build.classes.home}"/>
+                <pathelement location="${basedir}/etc"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="server" depends="setup">
+        <antcall target="clean"/>
+        <antcall target="build-server-java"/>
+    </target>
+
+    <target name="server-run" depends="setup">
+        <echo message="Starting endpoint...  "/>
+        <java fork="true" classname="tuto.server.ServiceDate">
+            <classpath>
+                <path refid="jaxws.classpath"/>
+                <pathelement location="${build.classes.home}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="help">
+        <echo message="client:            Builds the client"/>
+        <echo message="client-run:               Runs the client"/>
+        <echo message="server:       Builds the server"/>
+        <echo message="server-run:  deploy the Endpoint API based service" />
+    </target>
+
+</project>
