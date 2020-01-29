@@ -1,0 +1,35 @@
+USE [Modules]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[PASSAGE_ramet]
+AS
+BEGIN
+DECLARE @moyetd float
+DECLARE @numetd int
+DECLARE curseur CURSOR
+FOR
+SELECT NUM_ETU FROM ETUDIANTS_ramet
+OPEN curseur
+FETCH curseur INTO @numetd
+WHILE @@FETCH_STATUS = 0
+BEGIN
+select @moyetd = dbo.MOYENNE_ramet(@numetd)
+IF @moyetd > 11
+BEGIN
+UPDATE ETUDIANTS_ramet
+SET ANNEE_ETU = ANNEE_ETU + 1
+WHERE NUM_ETU = @numetd
+END
+ELSE IF @moyetd < 8
+BEGIN
+DELETE FROM NOTES_ramet WHERE NUM_ETU = @numetd;
+DELETE FROM ETUDIANTS_ramet WHERE NUM_ETU = @numetd;
+END
+FETCH curseur INTO @numetd
+END
+CLOSE curseur
+DEALLOCATE curseur
+END
