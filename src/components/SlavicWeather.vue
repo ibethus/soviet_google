@@ -67,8 +67,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 input {
   width: 80%;
+}
+img{
+  opacity: 1;
 }
 </style>

@@ -17,6 +17,10 @@
       <md-icon>feed</md-icon>
     </md-button>
 
+     <md-button class="md-icon-button md-raised" v-on:click="callTimeTravel">
+      <md-icon>schedule</md-icon>
+    </md-button>
+
   </md-toolbar>
 </template>
 
@@ -35,6 +39,9 @@ export default {
     },
     callPropaganda(){
       this.$emit("addPropaganda");
+    },
+    callTimeTravel(){
+      this.$emit("addTimeTravel");
     }
   },
 };

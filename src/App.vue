@@ -4,7 +4,8 @@
     @addWidgetSlavic="addSlavicWeather" 
     @addCominternPictures="addCominternPictures"
     @addComradeMichel="addComradeMichel"
-    @addPropaganda="addPropaganda"/>
+    @addPropaganda="addPropaganda"
+    @addTimeTravel="addTimeTravel"/>
     <md-content>
       <component
         v-for="(component, index) in widgets"
@@ -23,6 +24,7 @@ import SlavicWeather from "./components/SlavicWeather";
 import CominternPictures from "./components/CominternPictures";
 import ComradeMichel from "./components/ComradeMichel";
 import Propaganda from "./components/Propaganda";
+import TimeTravelMachine from "./components/TimeTravelMachine";
 
 const WidgetTemplate = {
   template: Widget.template,
@@ -50,6 +52,9 @@ export default {
     },
     addPropaganda(){
       this.widgets.push(Propaganda);
+    },
+    addTimeTravel(){
+      this.widgets.push(TimeTravelMachine)
     },
     deleteWidget(index){
       this.widgets.splice(index, 1);
