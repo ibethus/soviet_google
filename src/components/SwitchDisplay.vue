@@ -1,0 +1,50 @@
+<template>
+  <md-toolbar class="md-accent">
+    <h3 class="md-title" style="flex: 1">Sфviзt Gффglз</h3>
+    <md-button class="md-icon-button md-raised" v-on:click="callWeather">
+      <md-icon :md-src="require('../assets/weather.svg')"></md-icon>
+    </md-button>
+
+    <md-button class="md-icon-button md-raised" v-on:click="callCominternPictures">
+      <md-icon>image</md-icon>
+    </md-button>
+
+    <md-button class="md-icon-button md-raised" v-on:click="callComradeMichel">
+      <md-icon :md-src="require('../assets/twitter.svg')"></md-icon>
+    </md-button>
+
+     <md-button class="md-icon-button md-raised" v-on:click="callPropaganda">
+      <md-icon>feed</md-icon>
+    </md-button>
+
+  </md-toolbar>
+</template>
+
+<script>
+export default {
+  name: "SwitchDisplay",
+  methods: {
+    callWeather() {
+      this.$emit("addWidgetSlavic");
+    },
+    callCominternPictures() {
+      this.$emit("addCominternPictures");
+    },
+    callComradeMichel() {
+      this.$emit("addComradeMichel");
+    },
+    callPropaganda(){
+      this.$emit("addPropaganda");
+    }
+  },
+};
+</script>
+
+<style>
+button {
+  margin-left: 1% !important;
+  margin-right: 1% !important;
+}
+</style>
+
+

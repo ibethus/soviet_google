@@ -1,0 +1,63 @@
+<template>
+  <div class="page-container">
+    <SwitchDisplay 
+    @addWidgetSlavic="addSlavicWeather" 
+    @addCominternPictures="addCominternPictures"
+    @addComradeMichel="addComradeMichel"
+    @addPropaganda="addPropaganda"/>
+    <md-content>
+      <component
+        v-for="(component, index) in widgets"
+        :key="index"
+        :is="component"
+        v-on:delete-widget="deleteWidget(index)"
+      />
+    </md-content>
+  </div>
+</template>
+
+<script>
+import SwitchDisplay from "./components/SwitchDisplay";
+import Widget from "./components/Widget";
+import SlavicWeather from "./components/SlavicWeather";
+import CominternPictures from "./components/CominternPictures";
+import ComradeMichel from "./components/ComradeMichel";
+import Propaganda from "./components/Propaganda";
+
+const WidgetTemplate = {
+  template: Widget.template,
+};
+
+export default {
+  name: "App",
+  data() {
+    return {
+      widgets: [WidgetTemplate],
+    };
+  },
+  components: {
+    SwitchDisplay,
+  },
+  methods: {
+    addSlavicWeather() {
+      this.widgets.push(SlavicWeather);
+    },
+    addCominternPictures(){
+      this.widgets.push(CominternPictures);
+    },
+    addComradeMichel(){
+      this.widgets.push(ComradeMichel);
+    },
+    addPropaganda(){
+      this.widgets.push(Propaganda);
+    },
+    deleteWidget(index){
+      this.widgets.splice(index, 1);
+    }
+  },
+};
+</script>
+
+<style>
+@import "./assets/style.css";
+</style>
