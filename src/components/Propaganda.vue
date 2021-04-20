@@ -60,11 +60,14 @@ export default {
   methods: {
     getPropaganda: function (newsSearch) {
       axios
-        .get(`http://cors.io/?https://newsapi.org/v2/everything?q=${newsSearch}`, {
+        .get(`https://newsapi.org/v2/everything?q=${newsSearch}`, {
           params: {
             language: "fr",
             sortBy: "popularity",
             apiKey: "46dcc26e67554398b3f97d5e89e7d678",
+          },
+          headers: {
+            'Access-Control-Allow-Origin': "*"
           }
         })
         .then((response) => {
