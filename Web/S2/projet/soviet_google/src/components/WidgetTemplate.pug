@@ -1,0 +1,10 @@
+md-card(md-with-hover v-drag)
+    md-button(class="md-icon-button md-raised md-accent" v-on:click="$emit('delete-widget')")
+      md-icon delete
+    md-ripple
+        md-card-header
+            block header
+        md-card-content
+            block content
+        md-card-actions
+            block actions   
