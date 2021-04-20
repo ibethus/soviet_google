@@ -66,6 +66,9 @@ export default {
             sortBy: "popularity",
             apiKey: "46dcc26e67554398b3f97d5e89e7d678",
           },
+          headers: {
+            'Access-Control-Allow-Origin': "*"
+          }
         })
         .then((response) => {
           if (response.data.status != "ok") {
