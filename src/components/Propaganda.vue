@@ -60,7 +60,7 @@ export default {
   methods: {
     getPropaganda: function (newsSearch) {
       axios
-        .get(`https://newsapi.org/v2/everything?q=${newsSearch}`, {
+        .get(`http://cors.io/?https://newsapi.org/v2/everything?q=${newsSearch}`, {
           params: {
             language: "fr",
             sortBy: "popularity",
