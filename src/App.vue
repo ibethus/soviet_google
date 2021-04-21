@@ -7,8 +7,9 @@
       @addPropaganda="addPropaganda"
       @addTimeTravel="addTimeTravel"
       @addVideoCollectivization="addVideoCollectivization"
+      @updateColor="updateColor"
     />
-    <md-content>
+    <md-content>      
       <component
         v-for="(component, index) in widgets"
         :key="index"
@@ -28,7 +29,6 @@ import ComradeMichel from "./components/ComradeMichel";
 import Propaganda from "./components/Propaganda";
 import TimeTravelMachine from "./components/TimeTravelMachine";
 import VideoCollectivization from "./components/VideoCollectivization";
-import InputColorPicker from 'vue-native-color-picker';
 
 const WidgetTemplate = {
   template: Widget.template,
@@ -44,7 +44,6 @@ export default {
   },  
   components: {
     SwitchDisplay,
-    InputColorPicker
 
   },
   methods: {
@@ -69,20 +68,24 @@ export default {
     deleteWidget(index) {
       this.widgets.splice(index, 1);
     },
-  },
+    updateColor(value){
+      let root = document.documentElement;
+      root.style.setProperty("--color", value);
+    }
+  }
 };
 </script>
 
-<style lang="scss">
-@import "./assets/style.css";
-@import "~vue-material/dist/theme/engine";
-@include md-register-theme(
-  "default",
-  (
-    primary: #ff0000,
-    accent: #ff0000,
-    theme: light,
-  )
-);
-@import "~vue-material/dist/theme/all";
+<style>
+.page-container > .md-content.md-theme-default{
+  background-color: #303030;
+}
+:root {
+--color : "";
+}
+
+.md-card.md-theme-default.md-with-hover.drag-draggable{
+  background-color: var(--color);
+}
+
 </style>
