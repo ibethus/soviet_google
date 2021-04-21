@@ -1,7 +1,8 @@
 <template lang="pug">
 extends WidgetTemplate.pug
 block header
-  .md-title Cфmядde Michзl
+  .md-title Cфmядde Michзl  
+  .md-subhead д яздl pдяtisдn фf thз pдяty
 block content
   #twitter-widget-holder
     <html>

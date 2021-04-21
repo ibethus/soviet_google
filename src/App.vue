@@ -9,7 +9,7 @@
       @addVideoCollectivization="addVideoCollectivization"
       @updateColor="updateColor"
     />
-    <md-content>      
+    <md-content>
       <component
         v-for="(component, index) in widgets"
         :key="index"
@@ -39,12 +39,11 @@ export default {
   data() {
     return {
       widgets: [WidgetTemplate],
-      color : "#ff0000"
+      color: "#ff0000",
     };
-  },  
+  },
   components: {
     SwitchDisplay,
-
   },
   methods: {
     addSlavicWeather() {
@@ -62,30 +61,43 @@ export default {
     addTimeTravel() {
       this.widgets.push(TimeTravelMachine);
     },
-    addVideoCollectivization(){
+    addVideoCollectivization() {
       this.widgets.push(VideoCollectivization);
     },
     deleteWidget(index) {
       this.widgets.splice(index, 1);
     },
-    updateColor(value){
+    updateColor(value) {
       let root = document.documentElement;
       root.style.setProperty("--color", value);
-    }
-  }
+      this.getContrastYIQ(value);
+    },
+    /*Script permettant de calculer le contraste de l'arrière-plan des widgets. On ajuste la couleur de la police en fonction.
+    Source: https://24ways.org/2010/calculating-color-contrast*/
+    getContrastYIQ(hexcolor) {
+      let root = document.documentElement;
+      hexcolor = hexcolor.replace("#", "");
+      var r = parseInt(hexcolor.substr(0, 2), 16);
+      var g = parseInt(hexcolor.substr(2, 2), 16);
+      var b = parseInt(hexcolor.substr(4, 2), 16);
+      var yiq = (r * 299 + g * 587 + b * 114) / 1000;
+      yiq >= 128 ? root.style.setProperty("--fontColor", "#000000") : root.style.setProperty("--fontColor", "#ffffff");
+    },
+  },
 };
 </script>
 
 <style>
-.page-container > .md-content.md-theme-default{
+.page-container > .md-content.md-theme-default {
   background-color: #303030;
 }
 :root {
---color : "";
+  --color: "";
+  --fontColor: "black"
 }
 
-.md-card.md-theme-default.md-with-hover.drag-draggable{
+.md-card.md-theme-default.md-with-hover.drag-draggable {
   background-color: var(--color);
+  color: var(--fontColor);
 }
-
 </style>

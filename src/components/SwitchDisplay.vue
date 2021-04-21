@@ -93,6 +93,9 @@ button {
   margin-right: 1% !important;
   margin-bottom: 1% !important;
 }
+.icp__input {
+  margin-right: 1% !important;
+}
 </style>
 
 
