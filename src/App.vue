@@ -74,14 +74,14 @@ export default {
     },
     /*Script permettant de calculer le contraste de l'arrière-plan des widgets. On ajuste la couleur de la police en fonction.
     Source: https://24ways.org/2010/calculating-color-contrast*/
-    getContrastYIQ(hexcolor) {
+    getContrastYIQ(couleurFond) {
       let root = document.documentElement;
-      hexcolor = hexcolor.replace("#", "");
-      var r = parseInt(hexcolor.substr(0, 2), 16);
-      var g = parseInt(hexcolor.substr(2, 2), 16);
-      var b = parseInt(hexcolor.substr(4, 2), 16);
-      var yiq = (r * 299 + g * 587 + b * 114) / 1000;
-      yiq >= 128 ? root.style.setProperty("--fontColor", "#000000") : root.style.setProperty("--fontColor", "#ffffff");
+      couleurFond = couleurFond.replace("#", "");
+      var r = parseInt(couleurFond.substr(0, 2), 16);
+      var g = parseInt(couleurFond.substr(2, 2), 16);
+      var b = parseInt(couleurFond.substr(4, 2), 16);
+      var contraste = (r * 299 + g * 587 + b * 114) / 1000;
+      contraste >= 128 ? root.style.setProperty("--fontColor", "#000000") : root.style.setProperty("--fontColor", "#ffffff");
     },
   },
 };
