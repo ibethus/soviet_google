@@ -9,6 +9,7 @@
     "deploy": "node scripts/gh-pages-deploy.js"
   },
   "dependencies": {
+    "@adrianjost/two-channel-picker": "^0.3.6",
     "apollo-boost": "^0.4.9",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
@@ -16,7 +17,8 @@
     "v-drag": "^2.1.3",
     "vue": "^2.6.11",
     "vue-apollo": "^3.0.7",
-    "vue-material": "*"
+    "vue-material": "*",
+    "vue-native-color-picker": "^1.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -25,10 +27,12 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "execa": "latest",
+    "node-sass": "^5.0.0",
     "pug": "^3.0.2",
     "pug-plain-loader": "^1.1.0",
-    "vue-template-compiler": "^2.6.11",
-    "execa": "latest"
+    "sass-loader": "^10.1.1",
+    "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
     "root": true,
