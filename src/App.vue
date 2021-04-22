@@ -8,6 +8,7 @@
       @addTimeTravel="addTimeTravel"
       @addVideoCollectivization="addVideoCollectivization"
       @updateColor="updateColor"
+      @saveConfiguration="saveConfiguration"
     />
     <md-content>
       <component
@@ -40,6 +41,32 @@ export default {
     return {
       widgets: [WidgetTemplate],
       color: "#ff0000",
+      storedWidgets: [
+        {
+          name: "SlavicWeather",
+          component: SlavicWeather,
+        },
+        {
+          name: "CominternPictures",
+          component: CominternPictures,
+        },
+        {
+          name: "Propaganda",
+          component: Propaganda,
+        },
+        {
+          name: "ComradeMichel",
+          component: ComradeMichel,
+        },
+        {
+          name: "TimeTravelMachine",
+          component: TimeTravelMachine,
+        },
+        {
+          name: "VideoCollectivization",
+          component: VideoCollectivization,
+        },
+      ],
     };
   },
   components: {
@@ -81,8 +108,54 @@ export default {
       var g = parseInt(couleurFond.substr(2, 2), 16);
       var b = parseInt(couleurFond.substr(4, 2), 16);
       var contraste = (r * 299 + g * 587 + b * 114) / 1000;
-      contraste >= 128 ? root.style.setProperty("--fontColor", "#000000") : root.style.setProperty("--fontColor", "#ffffff");
+      contraste >= 128
+        ? root.style.setProperty("--fontColor", "#000000")
+        : root.style.setProperty("--fontColor", "#ffffff");
     },
+    /* Méthode permettant l'enregistrement dans le local storage */
+    saveConfiguration() {
+      let root = document.documentElement;
+      const parsedWidgets = JSON.stringify(this.widgets);
+      localStorage.setItem("widgets", parsedWidgets);
+      localStorage.choosenColor = root.style.getPropertyValue("--color");
+      localStorage.fontColor = root.style.getPropertyValue("--fontColor");
+      alert("Les données ont bien été sauvegardées");
+    },
+  },
+  mounted() {
+    /* Lors de la création de la vue, on vérifie dans le local storage si des informations avaient été enregistrées */
+    if (localStorage.getItem("widgets")) {
+      try {
+        /* Si les informations sont bien présentes, on recréer les widgets enregistrés */
+        let parsedWidgets = JSON.parse(localStorage.getItem("widgets"));
+        console.log("Lecture des widgets enregistrés : " + (parsedWidgets.length-1).toString());
+
+        parsedWidgets.forEach((parsedW) => {
+          this.storedWidgets.forEach((storedW) => {
+            if (parsedW.name == storedW.name) {
+              console.log(" Succès: " + parsedW.name);
+              this.widgets.push(storedW["component"]);
+            }
+          });
+        });
+
+        /* On vérifie également que les couleurs ont bien été stockées, et on les réutilise */
+        let root = document.documentElement;
+        if (localStorage.choosenColor) {
+          root.style.setProperty("--color", localStorage.choosenColor);
+          console.log(
+            "La couleur a bien été chargée: " + localStorage.choosenColor
+          );
+        }
+        if (localStorage.fontColor) {
+          root.style.setProperty("--fontColor", localStorage.fontColor);
+        }
+      } catch (e) {
+        /* Si les données sont corrompues, on les supprime du localStorage */
+        localStorage.removeItem("widgets");
+        alert("Les données sauvegardées sont corrompues");
+      }
+    }
   },
 };
 </script>
@@ -93,7 +166,7 @@ export default {
 }
 :root {
   --color: "";
-  --fontColor: "black"
+  --fontColor: "#000000";
 }
 
 .md-card.md-theme-default.md-with-hover.drag-draggable {

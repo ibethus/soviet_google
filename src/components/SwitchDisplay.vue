@@ -4,6 +4,13 @@
 
     <InputColorPicker v-model="color" @change="callUpdateColor" />
 
+     <md-button
+      class="md-icon-button"
+      v-on:click="callSave"
+    >
+      <md-icon>save</md-icon>
+    </md-button>
+
     <md-button
       class="md-icon-button md-raised md-accent"
       v-on:click="callWeather"
@@ -80,6 +87,9 @@ export default {
     callUpdateColor() {
       this.$emit("updateColor", this.color);
     },
+    callSave(){
+      this.$emit("saveConfiguration");
+    }
   },
   components: {
     InputColorPicker,
@@ -89,9 +99,7 @@ export default {
 
 <style>
 button {
-  margin-left: 1% !important;
-  margin-right: 1% !important;
-  margin-bottom: 1% !important;
+  margin: 1% !important;
 }
 .icp__input {
   margin-right: 1% !important;
