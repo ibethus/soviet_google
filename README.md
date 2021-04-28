@@ -22,7 +22,7 @@
 
 ## Utilisation en ligne
 
-Le site est accessible en ligne à la page https://ibethus.github.io/soviet_google/. 
+Le site est accessible en ligne à la page https://ibethus.github.io/soviet_google/
 
 Quelques remarques sont à noter concernant son utilisation : 
 
@@ -34,7 +34,7 @@ Quelques remarques sont à noter concernant son utilisation :
 
 ## Utilisation en localhost
 1. Cloner le projet depuis github
-2. se placer dans le dossier source
+2. Se placer dans le dossier source
 3. Il faut avoir npm installé sur sa machine et lancer la commande suivante :
 ```bash
 npm run serve
