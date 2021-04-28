@@ -33,6 +33,7 @@ import VideoCollectivization from "./components/VideoCollectivization";
 
 const WidgetTemplate = {
   template: Widget.template,
+  message: Widget.message
 };
 
 export default {
@@ -128,7 +129,10 @@ export default {
       try {
         /* Si les informations sont bien présentes, on recréer les widgets enregistrés */
         let parsedWidgets = JSON.parse(localStorage.getItem("widgets"));
-        console.log("Lecture des widgets enregistrés : " + (parsedWidgets.length-1).toString());
+        console.log(
+          "Lecture des widgets enregistrés : " +
+            (parsedWidgets.length - 1).toString()
+        );
 
         parsedWidgets.forEach((parsedW) => {
           this.storedWidgets.forEach((storedW) => {

@@ -4,8 +4,8 @@ include WidgetTemplate.pug
 
 <script>
 export default {
-  name: "Widget"
-  }
+  name: "Widget",
+};
 </script>
 
 <style>
@@ -29,8 +29,10 @@ a {
   display: inline-block;
   vertical-align: top;
   text-align: center;
+  --topPos: 10;
+  --leftPos: 10;
 }
-.md-icon-button.md-raised.md-accent{
+.md-icon-button.md-raised.md-accent {
   margin-top: 0.5rem;
 }
 </style>

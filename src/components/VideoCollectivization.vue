@@ -13,7 +13,7 @@ block content
 block actions
   md-field
     label Mot-clef
-    md-input(v-model="motClef")
+    md-input
   md-button(v-on:click="callTheParty()" class="md-raised md-accent") Seдяch
 </template>
 
