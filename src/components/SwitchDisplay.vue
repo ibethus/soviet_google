@@ -2,12 +2,9 @@
   <md-toolbar>
     <h3 class="md-title" style="flex: 1">Sфviзt Gффglз</h3>
 
-    <InputColorPicker v-model="color" @change="callUpdateColor" />
+    <InputColorPicker v-model="color" @change="callUpdateColor" aria-label="colorPicker"/>
 
-     <md-button
-      class="md-icon-button"
-      v-on:click="callSave"
-    >
+    <md-button class="md-icon-button" v-on:click="callSave">
       <md-icon>save</md-icon>
     </md-button>
 
@@ -15,7 +12,7 @@
       class="md-icon-button md-raised md-accent"
       v-on:click="callWeather"
     >
-      <md-icon :md-src="require('../assets/weather.svg')"></md-icon>
+      <md-icon>thermostat</md-icon>
     </md-button>
 
     <md-button
@@ -29,7 +26,7 @@
       class="md-icon-button md-raised md-accent"
       v-on:click="callComradeMichel"
     >
-      <md-icon :md-src="require('../assets/twitter.svg')"></md-icon>
+      <md-icon>textsms</md-icon>
     </md-button>
 
     <md-button
@@ -87,9 +84,9 @@ export default {
     callUpdateColor() {
       this.$emit("updateColor", this.color);
     },
-    callSave(){
+    callSave() {
       this.$emit("saveConfiguration");
-    }
+    },
   },
   components: {
     InputColorPicker,
