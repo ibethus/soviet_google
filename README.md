@@ -30,7 +30,7 @@ Quelques remarques sont à noter concernant son utilisation :
 
   ![image déverrouillage https firefox](./readme_img/https_unlock.png "Déverrouillage http sur firefox")
 
-* Le widget nécessitant l'utilisation de l'API news ne fonctionne pas lorsque le site est utilisé en ligne (par l'opposition à sa version en localhost), car l'API est désormais payante pour toute utilisation en dehors de la phase de développement. Si dessous, une procédure est indiquée pour lancer le projet en local si l'on souhaite tester le widget news.
+* Le widget nécessitant l'utilisation de l'API news ne fonctionne pas lorsque le site est utilisé en ligne (par l'opposition à sa version en localhost), car l'API est désormais payante pour toute utilisation en dehors de la phase de développement. Ci-dessous, une procédure est indiquée pour lancer le projet en local si l'on souhaite tester le widget news.
 
 ## Utilisation en localhost
 1. Cloner le projet depuis github
