@@ -1,0 +1,73 @@
+Fichier chargé : minified.csv
+Date nomination : 2021-04-14
+Nom ambassadeur : Arnaud DE SURY D'ASPREMONT
+Pays : Bahamas
+Sexe : M
+Date nomination : 2021-04-14
+Nom ambassadeur : Michèle BOCCOZ
+Pays : Micronésie
+Sexe : F
+Date nomination : 2021-04-01
+Nom ambassadeur : Michèle BOCCOZ
+Pays : Îles Marshall
+Sexe : F
+Date nomination : 2021-02-26
+Nom ambassadeur : Michèle BOCCOZ
+Pays : Palaos
+Sexe : F
+Date nomination : 2021-02-25
+Nom ambassadeur : Delphine BORIONE
+Pays : 
+Sexe : F
+Date nomination : 2021-01-31
+Nom ambassadeur : Jacques-Henry HEULS
+Pays : Grenade
+Sexe : M
+Date nomination : 2021-01-10
+Nom ambassadeur :  Grenadines
+Pays : Saint-Vincent-et-les Grenadines
+Sexe : M
+Date nomination : 2021-01-10
+Nom ambassadeur : Aurélien LECHEVALLIER
+Pays : Malawi
+Sexe : M
+Date nomination : 2021-01-03
+Nom ambassadeur : Marc FONBAUSTIER
+Pays : Sierra Leone
+Sexe : M
+Date nomination : 2021-01-01
+Nom ambassadeur : Niévès
+Pays : Saint-Christophe-et-Niévès
+Sexe : M
+Date nomination : 2021-01-01
+Nom ambassadeur : Jacques-Henry HEULS
+Pays : Dominique
+Sexe : M
+Date nomination : 2021-01-01
+Nom ambassadeur : Jacques-Henry HEULS
+Pays : Barbade
+Sexe : M
+Date nomination : 2021-01-01
+Nom ambassadeur : Jacques-Henry HEULS
+Pays : Antigua-et-Barbuda
+Sexe : M
+Date nomination : 2020-12-18
+Nom ambassadeur : François DELAHOUSSE
+Pays : Kirghizistan
+Sexe : M
+Date nomination : 2020-12-15
+Nom ambassadeur : Christian THIMONIER
+Pays : Monténégro
+Sexe : M
+Date nomination : 2020-11-27
+Nom ambassadeur : Salina GRENET-CATALANO
+Pays : Chypre
+Sexe : F
+Date nomination : 2020-11-26
+Nom ambassadeur : Philippe VOIRY
+Pays : 
+Sexe : M
+Date nomination : 2020-11-26
+Nom ambassadeur : Olivier POIVRE D'ARVOR
+Pays : 
+Sexe : M
